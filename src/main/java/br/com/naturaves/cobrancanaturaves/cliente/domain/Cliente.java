@@ -39,14 +39,14 @@ public class Cliente {
 	private String vendedor;
 	@NotNull
 	private LocalDate dataDoCadastro;
-	
+
 	private LocalDateTime dataHoraDaCadastro;
 	private LocalDateTime dataHoraDoUltimaAlteracao;
 
 	public Cliente(UUID idCliente, @NotBlank String codCliente, @NotBlank String razaoSocial, Inscricao inscricao,
 			@NotBlank String telefone, @Email String email, @NotBlank String vendedor,
 			@NotNull LocalDate dataDoCadastro) {
-		
+
 		this.idCliente = UUID.randomUUID();
 		this.codCliente = codCliente;
 		this.razaoSocial = razaoSocial;
