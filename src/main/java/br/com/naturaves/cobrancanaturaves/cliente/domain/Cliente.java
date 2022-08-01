@@ -13,6 +13,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import br.com.naturaves.cobrancanaturaves.cliente.application.api.clienteRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -43,18 +44,14 @@ public class Cliente {
 	private LocalDateTime dataHoraDaCadastro;
 	private LocalDateTime dataHoraDoUltimaAlteracao;
 
-	public Cliente(UUID idCliente, @NotBlank String codCliente, @NotBlank String razaoSocial, Inscricao inscricao,
-			@NotBlank String telefone, @Email String email, @NotBlank String vendedor,
-			@NotNull LocalDate dataDoCadastro) {
-
-		this.idCliente = UUID.randomUUID();
-		this.codCliente = codCliente;
-		this.razaoSocial = razaoSocial;
-		this.inscricao = inscricao;
-		this.telefone = telefone;
-		this.email = email;
-		this.vendedor = vendedor;
-		this.dataDoCadastro = dataDoCadastro;
+	public Cliente(clienteRequest clienteRequest) {
+		this.codCliente = clienteRequest.getCodCliente();
+		this.razaoSocial = clienteRequest.getRazaoSocial();
+		this.inscricao = clienteRequest.getInscricao();
+		this.telefone = clienteRequest.getTelefone();
+		this.email = clienteRequest.getEmail();
+		this.vendedor = clienteRequest.getVendedor();
+		this.dataDoCadastro = clienteRequest.getDataDoCadastro();
 		this.dataHoraDaCadastro = LocalDateTime.now();
 	}
 }
