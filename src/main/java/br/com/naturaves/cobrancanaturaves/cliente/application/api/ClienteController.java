@@ -1,5 +1,7 @@
 package br.com.naturaves.cobrancanaturaves.cliente.application.api;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.naturaves.cobrancanaturaves.cliente.application.service.ClienteService;
@@ -18,5 +20,14 @@ public class ClienteController implements ClienteAPI {
 		ClienteResponse clienteCriado = clienteService.criaCliente(clienteRequest);
 		log.info("[finaliza] ClienteController - postCliente");
 		return clienteCriado;
+	}
+
+	@Override
+	public List<ClienteListResponse> getTodosCliente() {
+		log.info("[inicia] ClienteController - getTodosCliente");
+		//List<ClienteListResponse> clientes = clienteService.buscaTodosClientes();
+		log.info("[finaliza] ClienteController - getTodosCliente");
+		//return clientes;
+		return null;
 	}
 }
