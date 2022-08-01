@@ -1,5 +1,7 @@
 package br.com.naturaves.cobrancanaturaves.cliente.application.api;
 
+import javax.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,5 +15,5 @@ public interface ClienteAPI {
 
 	@PostMapping
 	@ResponseStatus(code = HttpStatus.CREATED)
-	ClienteResponse postCliente(@RequestBody clienteRequest clienteRequest);
+	ClienteResponse postCliente(@Valid @RequestBody clienteRequest clienteRequest);
 }
