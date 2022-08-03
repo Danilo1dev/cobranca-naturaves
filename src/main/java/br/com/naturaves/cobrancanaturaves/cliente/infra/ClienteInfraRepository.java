@@ -1,6 +1,7 @@
 package br.com.naturaves.cobrancanaturaves.cliente.infra;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.stereotype.Repository;
 
@@ -29,5 +30,14 @@ public class ClienteInfraRepository implements ClienteRepository {
 		List<Cliente> todosClientes = clienteSpringDataJPARepository.findAll();
 		log.info("[finaliza]ClienteInfraRepository - buscaTodosClientes");
 		return todosClientes;
+	}
+
+	@Override
+	public Cliente buscaClienteAtravesId(UUID idCliente) {
+		log.info("[inicia]ClienteInfraRepository - buscaClienteAtravesID");
+		Cliente cliente = clienteSpringDataJPARepository.findById(idCliente)
+				.orElseThrow(() -> new RuntimeException("Cliente não encontrado!"));
+		log.info("[finaliza]ClienteInfraRepository - buscaClienteAtravesID");
+		return cliente;
 	}
 }
