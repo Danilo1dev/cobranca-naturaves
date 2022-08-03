@@ -14,8 +14,6 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,7 +24,7 @@ import lombok.NoArgsConstructor;
 public class Boleto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id", updatable = false, unique = true, nullable = false)
+	@Column(columnDefinition = "uuid", name = "idCliente", updatable = false, unique = true, nullable = false)
 	private UUID idBoleto;
 
 	@NotNull
@@ -43,27 +41,24 @@ public class Boleto {
 	private Double valorNegociado;
 	private GrupoEmpresarial grupoEmpresarial;
 	@NotNull
-	@JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd-MM-yyyy")
 	private LocalDate dataDoContato;
 	@NotNull
-	@JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd-MM-yyyy")
 	private LocalDate dataDoRetorno;
 
 	@NotBlank(message = "Por favor insira uma anotação")
 	@Lob
-	private String descricao;
+	private String anotacao;
 
 	private LocalDateTime dataHoraDaCadastro;
 	private LocalDateTime dataHoraDoUltimaAlteracao;
-	
-	
+
 	public Boleto(UUID idBoleto,
 			@NotNull @NotBlank(message = "O numero do boleto não pode estar em branco") String numeroBoleto,
 			@NotNull @Size(max = 2) String numeroDaParcela, @NotNull LocalDate dataDoVencimento,
 			@NotNull Double valorDoBoleto, @NotNull Double valorNegociado, GrupoEmpresarial grupoEmpresarial,
 			@NotNull LocalDate dataDoContato, @NotNull LocalDate dataDoRetorno,
-			@NotBlank(message = "Por favor insira uma anotação") String descricao) {
-		
+			@NotBlank(message = "Por favor insira uma anotação") String anotacao) {
+
 		this.idBoleto = UUID.randomUUID();
 		this.idBoleto = idBoleto;
 		this.numeroBoleto = numeroBoleto;
@@ -74,7 +69,7 @@ public class Boleto {
 		this.grupoEmpresarial = grupoEmpresarial;
 		this.dataDoContato = dataDoContato;
 		this.dataDoRetorno = dataDoRetorno;
-		this.descricao = descricao;
+		this.anotacao = anotacao;
 		this.dataHoraDaCadastro = LocalDateTime.now();
 	}
 }
