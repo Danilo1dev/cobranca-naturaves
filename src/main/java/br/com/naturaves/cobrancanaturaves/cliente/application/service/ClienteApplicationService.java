@@ -1,9 +1,11 @@
 package br.com.naturaves.cobrancanaturaves.cliente.application.service;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
+import br.com.naturaves.cobrancanaturaves.cliente.application.api.ClienteDetalhadoResponse;
 import br.com.naturaves.cobrancanaturaves.cliente.application.api.ClienteListResponse;
 import br.com.naturaves.cobrancanaturaves.cliente.application.api.ClienteResponse;
 import br.com.naturaves.cobrancanaturaves.cliente.application.api.clienteRequest;
@@ -34,5 +36,12 @@ public class ClienteApplicationService implements ClienteService {
 		List<Cliente> clientes = clienteRepository.buscaTodosClientes();
 		log.info("[finaliza] ClienteApplicationService - buscaTodosClientes");
 		return ClienteListResponse.converte(clientes);
+	}
+
+	@Override
+	public ClienteDetalhadoResponse buscaClienteAtravesID(UUID idCliente) {
+		log.info("[inicia] ClienteApplicationService - buscaClienteAtravesId");
+		log.info("[finaliza] ClienteApplicationService - buscaClienteAtravesId");
+		return null;
 	}
 }
