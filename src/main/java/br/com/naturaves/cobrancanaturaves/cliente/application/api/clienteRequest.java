@@ -6,6 +6,8 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import br.com.naturaves.cobrancanaturaves.cliente.domain.Inscricao;
 import lombok.Value;
 
@@ -25,5 +27,4 @@ public class clienteRequest {
 	private String vendedor;
 	@NotNull
 	private LocalDate dataDoCadastro;
-
 }

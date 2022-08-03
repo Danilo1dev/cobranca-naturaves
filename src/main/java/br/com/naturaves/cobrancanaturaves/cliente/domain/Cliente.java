@@ -13,6 +13,8 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import br.com.naturaves.cobrancanaturaves.cliente.application.api.clienteRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -24,7 +26,7 @@ import lombok.NoArgsConstructor;
 public class Cliente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id", updatable = false, unique = true, nullable = false)
+	@Column(columnDefinition = "uuid", name = "idCliente", updatable = false, unique = true, nullable = false)
 	private UUID idCliente;
 
 	@NotBlank
