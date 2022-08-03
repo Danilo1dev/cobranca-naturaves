@@ -3,6 +3,7 @@ package br.com.naturaves.cobrancanaturaves.cliente.application.api;
 import java.time.LocalDate;
 import java.util.UUID;
 
+import br.com.naturaves.cobrancanaturaves.cliente.domain.Cliente;
 import br.com.naturaves.cobrancanaturaves.cliente.domain.Inscricao;
 import lombok.Value;
 
@@ -17,17 +18,15 @@ public class ClienteDetalhadoResponse {
 	private String email;
 	private String vendedor;
 	private LocalDate dataDoCadastro;
-	
-	public ClienteDetalhadoResponse(UUID idCliente, String codCliente, String razaoSocial, Inscricao inscricao,
-			String telefone, String email, String vendedor, LocalDate dataDoCadastro) {
-		
-		this.idCliente = idCliente;
-		this.codCliente = codCliente;
-		this.razaoSocial = razaoSocial;
-		this.inscricao = inscricao;
-		this.telefone = telefone;
-		this.email = email;
-		this.vendedor = vendedor;
-		this.dataDoCadastro = dataDoCadastro;
+
+	public ClienteDetalhadoResponse(Cliente cliente) {
+		this.idCliente = cliente.getIdCliente();
+		this.codCliente = cliente.getCodCliente();
+		this.razaoSocial = cliente.getRazaoSocial();
+		this.inscricao = cliente.getInscricao();
+		this.telefone = cliente.getTelefone();
+		this.email = cliente.getEmail();
+		this.vendedor = cliente.getVendedor();
+		this.dataDoCadastro = cliente.getDataDoCadastro();
 	}
 }
