@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.UUID;
 
 import br.com.naturaves.cobrancanaturaves.cliente.domain.Cliente;
-import br.com.naturaves.cobrancanaturaves.cliente.domain.Inscricao;
+import br.com.naturaves.cobrancanaturaves.cliente.domain.InscricaoSocial;
 import lombok.Value;
 
 @Value
@@ -13,7 +13,7 @@ public class ClienteDetalhadoResponse {
 	private UUID idCliente;
 	private String codCliente;
 	private String razaoSocial;
-	private Inscricao inscricao;
+	private InscricaoSocial inscricaoSocial;
 	private String telefone;
 	private String email;
 	private String vendedor;
@@ -23,7 +23,7 @@ public class ClienteDetalhadoResponse {
 		this.idCliente = cliente.getIdCliente();
 		this.codCliente = cliente.getCodCliente();
 		this.razaoSocial = cliente.getRazaoSocial();
-		this.inscricao = cliente.getInscricao();
+		this.inscricaoSocial = cliente.getInscricaoSocial();
 		this.telefone = cliente.getTelefone();
 		this.email = cliente.getEmail();
 		this.vendedor = cliente.getVendedor();

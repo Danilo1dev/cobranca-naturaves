@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import br.com.naturaves.cobrancanaturaves.cliente.domain.Inscricao;
+import br.com.naturaves.cobrancanaturaves.cliente.domain.InscricaoSocial;
 import lombok.Value;
 
 @Value
@@ -18,7 +18,7 @@ public class clienteRequest {
 	private String codCliente;
 	@NotBlank
 	private String razaoSocial;
-	private Inscricao inscricao;
+	private InscricaoSocial inscricaoSocial;
 	@NotBlank
 	private String telefone;
 	@Email

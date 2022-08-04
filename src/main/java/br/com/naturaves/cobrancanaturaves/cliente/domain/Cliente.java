@@ -28,10 +28,12 @@ public class Cliente {
 	private UUID idCliente;
 
 	@NotBlank
+	@Column(unique = true)
 	private String codCliente;
 	@NotBlank
+	@Column(unique = true)
 	private String razaoSocial;
-	private Inscricao inscricao;
+	private InscricaoSocial inscricaoSocial;
 	@NotBlank
 	private String telefone;
 	@Email
@@ -47,7 +49,7 @@ public class Cliente {
 	public Cliente(clienteRequest clienteRequest) {
 		this.codCliente = clienteRequest.getCodCliente();
 		this.razaoSocial = clienteRequest.getRazaoSocial();
-		this.inscricao = clienteRequest.getInscricao();
+		this.inscricaoSocial = clienteRequest.getInscricaoSocial();
 		this.telefone = clienteRequest.getTelefone();
 		this.email = clienteRequest.getEmail();
 		this.vendedor = clienteRequest.getVendedor();
