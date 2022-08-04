@@ -60,6 +60,9 @@ public class ClienteApplicationService implements ClienteService {
 	@Override
 	public void patchAlteracliente(UUID idCliente, @Valid ClienteAlteracaoRequest clienteAlteracaoRequest) {
 		log.info("[inicia] ClienteApplicationService - patchAlteracliente");
+		Cliente cliente = clienteRepository.buscaClienteAtravesId(idCliente);
+		cliente.altera(clienteAlteracaoRequest);
+		clienteRepository.salva(cliente);
 		log.info("[finaliza] ClienteApplicationService - patchAlteracliente");
 	}
 }

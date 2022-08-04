@@ -13,6 +13,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import br.com.naturaves.cobrancanaturaves.cliente.application.api.ClienteAlteracaoRequest;
 import br.com.naturaves.cobrancanaturaves.cliente.application.api.clienteRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -55,5 +56,13 @@ public class Cliente {
 		this.vendedor = clienteRequest.getVendedor();
 		this.dataDoCadastro = clienteRequest.getDataDoCadastro();
 		this.dataHoraDaCadastro = LocalDateTime.now();
+	}
+
+	public void altera(ClienteAlteracaoRequest clienteAlteracaoRequest) {
+		this.inscricaoSocial = clienteAlteracaoRequest.getInscricaoSocial();
+		this.telefone = clienteAlteracaoRequest.getTelefone();
+		this.email = clienteAlteracaoRequest.getEmail();
+		this.vendedor = clienteAlteracaoRequest.getVendedor();
+		this.dataHoraDoUltimaAlteracao = LocalDateTime.now();
 	}
 }
