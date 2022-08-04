@@ -3,6 +3,8 @@ package br.com.naturaves.cobrancanaturaves.cliente.application.api;
 import java.util.List;
 import java.util.UUID;
 
+import javax.validation.Valid;
+
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.naturaves.cobrancanaturaves.cliente.application.service.ClienteService;
@@ -46,5 +48,13 @@ public class ClienteController implements ClienteAPI {
 		log.info("[idCliente] {}", idCliente);
 		clienteService.deletaClienteAtravesID(idCliente);
 		log.info("[finaliza] ClienteController - deletaclienteAtravesId");				
+	}
+
+	@Override
+	public void patchAlteracliente(UUID idCliente, @Valid ClienteAlteracaoRequest clienteAlteracaoRequest) {
+		log.info("[inicia] ClienteController - patchAlteracliente");
+		log.info("[idCliente] {}", idCliente);
+		clienteService.patchAlteracliente(idCliente, clienteAlteracaoRequest);
+		log.info("[finaliza] ClienteController - patchAlteracliente");				
 	}
 }
