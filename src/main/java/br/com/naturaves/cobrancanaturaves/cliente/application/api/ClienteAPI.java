@@ -38,6 +38,6 @@ public interface ClienteAPI {
 	
 	@PatchMapping(value = "/{idCliente}")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
-	void patchAlteracliente(@PathVariable UUID idCliente,
+	void patchAlteraCliente(@PathVariable UUID idCliente,
 			@Valid @RequestBody ClienteAlteracaoRequest clienteAlteracaoRequest);
 }
