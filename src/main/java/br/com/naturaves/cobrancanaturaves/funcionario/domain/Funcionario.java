@@ -31,4 +31,10 @@ public class Funcionario {
 	private String cargo;
 
 	private LocalDateTime dataHoraDaCadastro;
+
+	public Funcionario(UUID idFuncionario, @NotBlank String nome, @NotBlank String cargo) {
+		this.idFuncionario = idFuncionario;
+		this.nome = nome;
+		this.cargo = cargo;
+	}
 }
