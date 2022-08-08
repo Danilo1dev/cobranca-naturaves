@@ -10,11 +10,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 
+import br.com.naturaves.cobrancanaturaves.funcionario.application.api.FuncionarioNovoRequest;
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
+@AllArgsConstructor(access = AccessLevel.PRIVATE) 
 @Getter
 @Entity
 public class Funcionario {
@@ -27,14 +30,13 @@ public class Funcionario {
 	@Column(unique = true)
 	private String nome;
 	@NotBlank
-	@Column(unique = true)
 	private String cargo;
-
+	@Column(unique = true)
+	private String emailCorporativo;
+	
 	private LocalDateTime dataHoraDaCadastro;
 
-	public Funcionario(UUID idFuncionario, @NotBlank String nome, @NotBlank String cargo) {
-		this.idFuncionario = idFuncionario;
-		this.nome = nome;
-		this.cargo = cargo;
+	public Funcionario(FuncionarioNovoRequest funcionarioNovoRequest) {
+		this.emailCorporativo = funcionarioNovoRequest.getEmailCorporativo();
 	}
 }
