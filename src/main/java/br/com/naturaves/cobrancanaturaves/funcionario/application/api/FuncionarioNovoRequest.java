@@ -10,6 +10,10 @@ import lombok.Value;
 public class FuncionarioNovoRequest {
 	
 	@NotBlank
+	private String nome;
+	@NotBlank
+	private String cargo;
+	@NotBlank
 	@Email
 	private String emailCorporativo;
 	@NotBlank

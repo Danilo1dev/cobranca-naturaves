@@ -35,8 +35,12 @@ public class Funcionario {
 	private String emailCorporativo;
 	
 	private LocalDateTime dataHoraDaCadastro;
+	private LocalDateTime dataHoraDoUltimaAlteracao;
 
 	public Funcionario(FuncionarioNovoRequest funcionarioNovoRequest) {
+		this.nome = funcionarioNovoRequest.getNome();
+		this.cargo = funcionarioNovoRequest.getCargo();
 		this.emailCorporativo = funcionarioNovoRequest.getEmailCorporativo();
+		this.dataHoraDaCadastro = LocalDateTime.now();
 	}
 }
