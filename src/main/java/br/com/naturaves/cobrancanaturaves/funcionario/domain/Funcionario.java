@@ -10,14 +10,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 
-import br.com.naturaves.cobrancanaturaves.funcionario.application.api.FuncionarioNovoRequest;
+import br.com.naturaves.cobrancanaturaves.funcionario.application.api.FuncionarioRequest;
 import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-@AllArgsConstructor(access = AccessLevel.PRIVATE) 
 @Getter
 @Entity
 public class Funcionario {
@@ -37,10 +35,10 @@ public class Funcionario {
 	private LocalDateTime dataHoraDaCadastro;
 	private LocalDateTime dataHoraDoUltimaAlteracao;
 
-	public Funcionario(FuncionarioNovoRequest funcionarioNovoRequest) {
-		this.nome = funcionarioNovoRequest.getNome();
-		this.cargo = funcionarioNovoRequest.getCargo();
-		this.emailCorporativo = funcionarioNovoRequest.getEmailCorporativo();
+	public Funcionario(FuncionarioRequest funcionarioRequest) {
+		this.nome = funcionarioRequest.getNome();
+		this.cargo = funcionarioRequest.getCargo();
+		this.emailCorporativo = funcionarioRequest.getEmailCorporativo();
 		this.dataHoraDaCadastro = LocalDateTime.now();
 	}
 }

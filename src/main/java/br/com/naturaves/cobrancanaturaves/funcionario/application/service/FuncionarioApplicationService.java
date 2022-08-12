@@ -1,11 +1,9 @@
 package br.com.naturaves.cobrancanaturaves.funcionario.application.service;
 
-import javax.validation.Valid;
-
 import org.springframework.stereotype.Service;
 
-import br.com.naturaves.cobrancanaturaves.funcionario.application.api.FuncionarioCriadoResponse;
-import br.com.naturaves.cobrancanaturaves.funcionario.application.api.FuncionarioNovoRequest;
+import br.com.naturaves.cobrancanaturaves.funcionario.application.api.FuncionarioRequest;
+import br.com.naturaves.cobrancanaturaves.funcionario.application.api.FuncionarioResponse;
 import br.com.naturaves.cobrancanaturaves.funcionario.application.repository.FuncionarioRepository;
 import br.com.naturaves.cobrancanaturaves.funcionario.domain.Funcionario;
 import lombok.RequiredArgsConstructor;
@@ -18,11 +16,11 @@ public class FuncionarioApplicationService implements FuncionarioService {
 	private final FuncionarioRepository funcionarioRepository;
 
 	@Override
-	public FuncionarioCriadoResponse criaNovoFuncionario(@Valid FuncionarioNovoRequest funcionarioNovoRequest) {
+	public FuncionarioResponse criaNovoFuncionario(FuncionarioRequest funcionarioRequest) {
 		log.info("[inicia] FuncionarioApplicationService - criaNovoFuncionario");
-		Funcionario funcionario  = funcionarioRepository.salva(new Funcionario(funcionarioNovoRequest));
+		Funcionario funcionario  = funcionarioRepository.salva(new Funcionario(funcionarioRequest));
 		log.info("[finaliza] FuncionarioApplicationService - criaNovoFuncionario");
-		return FuncionarioCriadoResponse.builder()
+		return FuncionarioResponse.builder()
 				.idFuncionario(funcionario.getIdFuncionario())
 				.build();
 	}

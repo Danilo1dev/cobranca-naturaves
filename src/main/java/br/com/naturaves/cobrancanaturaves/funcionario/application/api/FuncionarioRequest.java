@@ -7,7 +7,7 @@ import javax.validation.constraints.Size;
 import lombok.Value;
 
 @Value
-public class FuncionarioNovoRequest {
+public class FuncionarioRequest {
 	
 	@NotBlank
 	private String nome;
