@@ -12,10 +12,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import br.com.naturaves.cobrancanaturaves.boleto.apllication.api.BoletoRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,6 +30,10 @@ public class Boleto {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(columnDefinition = "uuid", name = "idBoleto", updatable = false, unique = true, nullable = false)
 	private UUID idBoleto;
+	
+	@NotNull
+	@Column(columnDefinition = "uuid", name = "idClienteComercial", nullable = false)
+	private UUID idClienteComercial;
 
 	@NotNull
 	@NotBlank(message = "O numero do boleto não pode estar em branco")
@@ -54,4 +60,18 @@ public class Boleto {
 
 	private LocalDateTime dataHoraDaCadastro;
 	private LocalDateTime dataHoraDoUltimaAlteracao;
+	
+	public Boleto(UUID idCliente, @Valid BoletoRequest boletoRequest) {
+		this.idClienteComercial = idCliente;
+		this.numeroBoleto = boletoRequest.getNumeroBoleto();
+		this.numeroDaParcela = boletoRequest.getNumeroDaParcela();
+		this.dataDoVencimento = boletoRequest.getDataDoVencimento();
+		this.valorDoBoleto = boletoRequest.getValorDoBoleto();
+		this.valorNegociado = boletoRequest.getValorNegociado();
+		this.grupoEmpresarial = boletoRequest.getGrupoEmpresarial();
+		this.dataDoContato = boletoRequest.getDataDoContato();
+		this.dataDoRetorno = boletoRequest.getDataDoRetorno();
+		this.anotacao = boletoRequest.getAnotacao();
+		this.dataHoraDaCadastro = LocalDateTime.now();
+	}
 }
