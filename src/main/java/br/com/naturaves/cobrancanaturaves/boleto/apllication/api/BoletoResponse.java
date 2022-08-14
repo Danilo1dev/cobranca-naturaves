@@ -1,5 +1,10 @@
 package br.com.naturaves.cobrancanaturaves.boleto.apllication.api;
 
-public class BoletoResponse {
+import java.util.UUID;
 
+import lombok.Value;
+
+@Value
+public class BoletoResponse {
+	private UUID idBoleto;
 }
