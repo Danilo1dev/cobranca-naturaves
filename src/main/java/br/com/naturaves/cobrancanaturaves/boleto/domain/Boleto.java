@@ -6,6 +6,8 @@ import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,7 +26,7 @@ import lombok.NoArgsConstructor;
 public class Boleto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(columnDefinition = "uuid", name = "idCliente", updatable = false, unique = true, nullable = false)
+	@Column(columnDefinition = "uuid", name = "idBoleto", updatable = false, unique = true, nullable = false)
 	private UUID idBoleto;
 
 	@NotNull
@@ -39,6 +41,7 @@ public class Boleto {
 	private Double valorDoBoleto;
 	@NotNull
 	private Double valorNegociado;
+	@Enumerated(EnumType.STRING)
 	private GrupoEmpresarial grupoEmpresarial;
 	@NotNull
 	private LocalDate dataDoContato;
@@ -51,25 +54,4 @@ public class Boleto {
 
 	private LocalDateTime dataHoraDaCadastro;
 	private LocalDateTime dataHoraDoUltimaAlteracao;
-
-	public Boleto(UUID idBoleto,
-			@NotNull @NotBlank(message = "O numero do boleto não pode estar em branco") String numeroBoleto,
-			@NotNull @Size(max = 2) String numeroDaParcela, @NotNull LocalDate dataDoVencimento,
-			@NotNull Double valorDoBoleto, @NotNull Double valorNegociado, GrupoEmpresarial grupoEmpresarial,
-			@NotNull LocalDate dataDoContato, @NotNull LocalDate dataDoRetorno,
-			@NotBlank(message = "Por favor insira uma anotação") String anotacao) {
-
-		this.idBoleto = UUID.randomUUID();
-		this.idBoleto = idBoleto;
-		this.numeroBoleto = numeroBoleto;
-		this.numeroDaParcela = numeroDaParcela;
-		this.dataDoVencimento = dataDoVencimento;
-		this.valorDoBoleto = valorDoBoleto;
-		this.valorNegociado = valorNegociado;
-		this.grupoEmpresarial = grupoEmpresarial;
-		this.dataDoContato = dataDoContato;
-		this.dataDoRetorno = dataDoRetorno;
-		this.anotacao = anotacao;
-		this.dataHoraDaCadastro = LocalDateTime.now();
-	}
 }
