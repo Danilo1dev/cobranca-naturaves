@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.naturaves.cobrancanaturaves.cliente.application.api.ClienteDetalhadoResponse;
+
 @RestController
 @RequestMapping("/v1/cliente/{idCliente}/boleto")
 public interface BoletoAPI {
@@ -25,4 +27,8 @@ public interface BoletoAPI {
 	@GetMapping
 	@ResponseStatus(code = HttpStatus.OK)
 	List<BoletoClienteListResponse> getBoletoDoClienteComId(@PathVariable UUID idCliente);
+	
+	@GetMapping(value = "/{idBoleto}")
+	@ResponseStatus(code = HttpStatus.OK)
+	BoletoDetalhadoResponse getBoletoAtravesId(@PathVariable UUID idCliente, @PathVariable UUID idBoleto);
 }

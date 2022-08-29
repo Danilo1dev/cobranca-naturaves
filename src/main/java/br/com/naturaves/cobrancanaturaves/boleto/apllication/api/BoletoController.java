@@ -34,4 +34,12 @@ public class BoletoController implements BoletoAPI {
 		log.info("[finaliza] BoletoController - getBoletoDoClienteComId");
 		return boletoDoCliente;
 	}
+
+	@Override
+	public BoletoDetalhadoResponse getBoletoAtravesId(UUID idCliente, UUID idBoleto) {
+		log.info("[inicia] BoletoController - getBoletoAtravesId");
+		log.info("[idCliente]{} - [idBoleto] {}",idCliente, idBoleto);
+		log.info("[finaliza] BoletoController - getBoletoAtravesId");
+		return null;
+	}
 }
