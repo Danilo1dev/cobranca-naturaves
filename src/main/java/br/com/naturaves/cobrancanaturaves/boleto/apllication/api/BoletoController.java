@@ -1,5 +1,6 @@
 package br.com.naturaves.cobrancanaturaves.boleto.apllication.api;
 
+import java.util.List;
 import java.util.UUID;
 
 import javax.validation.Valid;
@@ -23,5 +24,13 @@ public class BoletoController implements BoletoAPI {
 		BoletoResponse boleto = boletoService.criaBoleto(idCliente,boletoRequest);
 		log.info("[finaliza] BoletoController - postBoleto");
 		return boleto;
+	}
+
+	@Override
+	public List<BoletoClienteListResponse> getBoletoDoClienteComId(UUID idCliente) {
+		log.info("[inicia] BoletoController - getBoletoDoClienteComId");
+		log.info("[idCliente]{}",idCliente);
+		log.info("[finaliza] BoletoController - getBoletoDoClienteComId");
+		return null;
 	}
 }
