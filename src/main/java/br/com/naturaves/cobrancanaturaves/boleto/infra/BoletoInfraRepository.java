@@ -27,7 +27,7 @@ public class BoletoInfraRepository implements BoletoRepository {
 	@Override
 	public List<Boleto> buscaBoletoDoClienteComId(UUID idCliente) {
 		log.info("[inicia] BoletoInfraRepository - buscaBoletoDoClienteComId");
-		var boleto = boletoSpringDataJPARepository.findByIdClienteTutor(idCliente);
+		var boleto = boletoSpringDataJPARepository.findByIdClienteComercial(idCliente);
 		log.info("[finaliza] BoletoInfraRepository - buscaBoletoDoClienteComId");
 		return boleto;
 	}

@@ -1,12 +1,9 @@
 package br.com.naturaves.cobrancanaturaves.boleto.apllication.api;
 
 import java.time.LocalDate;
-
-import javax.persistence.Lob;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
 import br.com.naturaves.cobrancanaturaves.boleto.domain.GrupoEmpresarial;
 import lombok.Value;
 
@@ -22,14 +19,5 @@ public class BoletoRequest {
 	private LocalDate dataDoVencimento;
 	@NotNull
 	private Double valorDoBoleto;
-	@NotNull
-	private Double valorNegociado;
 	private GrupoEmpresarial grupoEmpresarial;
-	@NotNull
-	private LocalDate dataDoContato;
-	@NotNull
-	private LocalDate dataDoRetorno;
-	@NotBlank(message = "Por favor insira uma anotação")
-	@Lob
-	private String anotacao;
 }

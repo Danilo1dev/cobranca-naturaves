@@ -8,5 +8,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import br.com.naturaves.cobrancanaturaves.boleto.domain.Boleto;
 
 public interface BoletoSprindDataJPARepository extends JpaRepository<Boleto, UUID>{
-	List<Boleto> findByIdClienteTutor(UUID idClienteTutor);
+	List<Boleto> findByIdClienteComercial(UUID idClienteComercial);
 }
