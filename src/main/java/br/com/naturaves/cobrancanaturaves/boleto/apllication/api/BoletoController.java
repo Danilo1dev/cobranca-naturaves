@@ -30,7 +30,8 @@ public class BoletoController implements BoletoAPI {
 	public List<BoletoClienteListResponse> getBoletoDoClienteComId(UUID idCliente) {
 		log.info("[inicia] BoletoController - getBoletoDoClienteComId");
 		log.info("[idCliente]{}",idCliente);
+		List<BoletoClienteListResponse>boletoDoCliente = boletoService.buscaBoletoDoClienteComId(idCliente);
 		log.info("[finaliza] BoletoController - getBoletoDoClienteComId");
-		return null;
+		return boletoDoCliente;
 	}
 }
