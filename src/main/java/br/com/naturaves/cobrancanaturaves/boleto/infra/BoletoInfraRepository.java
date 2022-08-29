@@ -1,5 +1,8 @@
 package br.com.naturaves.cobrancanaturaves.boleto.infra;
 
+import java.util.List;
+import java.util.UUID;
+
 import org.springframework.stereotype.Repository;
 
 import br.com.naturaves.cobrancanaturaves.boleto.apllication.service.BoletoRepository;
@@ -19,5 +22,12 @@ public class BoletoInfraRepository implements BoletoRepository {
 		boletoSpringDataJPARepository.save(boleto);
 		log.info("[finaliza] BoletoInfraRepository - salvaBoleto");
 		return boleto;
+	}
+
+	@Override
+	public List<Boleto> buscaBoletoDoClienteComId(UUID idCliente) {
+		log.info("[inicia] BoletoInfraRepository - buscaBoletoDoClienteComId");
+		log.info("[finaliza] BoletoInfraRepository - buscaBoletoDoClienteComId");
+		return null;
 	}
 }

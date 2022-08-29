@@ -35,7 +35,8 @@ public class BoletoApplicationService implements BoletoService {
 	public List<BoletoClienteListResponse> buscaBoletoDoClienteComId(UUID idCliente) {
 		log.info("[inicia] BoletoApplicationService - buscaBoletoDoClienteComId");
 		clienteService.buscaClienteAtravesID(idCliente);
+		List<Boleto> boletoDoCliente = boletoRepository.buscaBoletoDoClienteComId(idCliente);
 		log.info("[finaliza] BoletoApplicationService - buscaBoletoDoClienteComId");
-		return null;
+		return BoletoClienteListResponse.converte(boletoDoCliente);
 	}
 }
