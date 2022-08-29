@@ -1,9 +1,7 @@
 package br.com.naturaves.cobrancanaturaves.boleto.apllication.api;
 
 import java.util.UUID;
-
 import javax.validation.Valid;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;

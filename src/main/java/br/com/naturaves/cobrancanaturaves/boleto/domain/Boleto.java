@@ -11,7 +11,6 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -30,11 +29,9 @@ public class Boleto {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(columnDefinition = "uuid", name = "idBoleto", updatable = false, unique = true, nullable = false)
 	private UUID idBoleto;
-	
 	@NotNull
 	@Column(columnDefinition = "uuid", name = "idClienteComercial", nullable = false)
 	private UUID idClienteComercial;
-
 	@NotNull
 	@NotBlank(message = "O numero do boleto não pode estar em branco")
 	private String numeroBoleto;
@@ -45,18 +42,8 @@ public class Boleto {
 	private LocalDate dataDoVencimento;
 	@NotNull
 	private Double valorDoBoleto;
-	@NotNull
-	private Double valorNegociado;
 	@Enumerated(EnumType.STRING)
 	private GrupoEmpresarial grupoEmpresarial;
-	@NotNull
-	private LocalDate dataDoContato;
-	@NotNull
-	private LocalDate dataDoRetorno;
-
-	@NotBlank(message = "Por favor insira uma anotação")
-	@Lob
-	private String anotacao;
 
 	private LocalDateTime dataHoraDaCadastro;
 	private LocalDateTime dataHoraDoUltimaAlteracao;
@@ -67,11 +54,7 @@ public class Boleto {
 		this.numeroDaParcela = boletoRequest.getNumeroDaParcela();
 		this.dataDoVencimento = boletoRequest.getDataDoVencimento();
 		this.valorDoBoleto = boletoRequest.getValorDoBoleto();
-		this.valorNegociado = boletoRequest.getValorNegociado();
 		this.grupoEmpresarial = boletoRequest.getGrupoEmpresarial();
-		this.dataDoContato = boletoRequest.getDataDoContato();
-		this.dataDoRetorno = boletoRequest.getDataDoRetorno();
-		this.anotacao = boletoRequest.getAnotacao();
 		this.dataHoraDaCadastro = LocalDateTime.now();
 	}
 }
