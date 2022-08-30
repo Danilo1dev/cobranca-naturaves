@@ -48,4 +48,10 @@ public class BoletoApplicationService implements BoletoService {
 		log.info("[finaliza] BoletoApplicationService - buscaBoletoDoClienteComId");
 		return new BoletoDetalhadoResponse(boleto);
 	}
+
+	@Override
+	public void deletaBoletoDoClienteComId(UUID idCliente, UUID idBoleto) {
+		log.info("[inicia] BoletoApplicationService - deletaBoletoDoClienteComId");
+		log.info("[finaliza] BoletoApplicationService - deletaBoletoDoClienteComId");	
+	}
 }

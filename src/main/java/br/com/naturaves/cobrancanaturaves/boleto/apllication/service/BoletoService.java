@@ -14,4 +14,5 @@ public interface BoletoService {
 	BoletoResponse criaBoleto(UUID idCliente, @Valid BoletoRequest boletoRequest);
 	List<BoletoClienteListResponse> buscaBoletoDoClienteComId(UUID idCliente);
 	BoletoDetalhadoResponse buscaBoletoDoClienteComId(UUID idCliente, UUID idBoleto);
+	void deletaBoletoDoClienteComId(UUID idCliente, UUID idBoleto);
 }
