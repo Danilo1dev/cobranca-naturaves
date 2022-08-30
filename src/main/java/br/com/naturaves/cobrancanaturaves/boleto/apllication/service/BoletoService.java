@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import javax.validation.Valid;
 
+import br.com.naturaves.cobrancanaturaves.boleto.apllication.api.BoletoAlteracaoRequest;
 import br.com.naturaves.cobrancanaturaves.boleto.apllication.api.BoletoClienteListResponse;
 import br.com.naturaves.cobrancanaturaves.boleto.apllication.api.BoletoDetalhadoResponse;
 import br.com.naturaves.cobrancanaturaves.boleto.apllication.api.BoletoRequest;
@@ -15,4 +16,5 @@ public interface BoletoService {
 	List<BoletoClienteListResponse> buscaBoletoDoClienteComId(UUID idCliente);
 	BoletoDetalhadoResponse buscaBoletoDoClienteComId(UUID idCliente, UUID idBoleto);
 	void deletaBoletoDoClienteComId(UUID idCliente, UUID idBoleto);
+	void alteraBoletoDoClienteComId(UUID idCliente, UUID idBoleto, BoletoAlteracaoRequest boletoAlteracaoRequest);
 }

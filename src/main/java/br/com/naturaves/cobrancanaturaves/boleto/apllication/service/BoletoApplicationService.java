@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.stereotype.Service;
 
+import br.com.naturaves.cobrancanaturaves.boleto.apllication.api.BoletoAlteracaoRequest;
 import br.com.naturaves.cobrancanaturaves.boleto.apllication.api.BoletoClienteListResponse;
 import br.com.naturaves.cobrancanaturaves.boleto.apllication.api.BoletoDetalhadoResponse;
 import br.com.naturaves.cobrancanaturaves.boleto.apllication.api.BoletoRequest;
@@ -57,5 +58,15 @@ public class BoletoApplicationService implements BoletoService {
 		Boleto boleto = boletoRepository.buscaBoletoPeloId(idBoleto);
 		boletoRepository.deletaBoletoId(boleto);
 		log.info("[finaliza] BoletoApplicationService - deletaBoletoDoClienteComId");	
+	}
+
+	@Override
+	public void alteraBoletoDoClienteComId(UUID idCliente, UUID idBoleto, BoletoAlteracaoRequest boletoAlteracaoRequest) {
+		log.info("[inicia] BoletoApplicationService - alteraBoletoDoClienteComId");
+		clienteService.buscaClienteAtravesID(idCliente);
+		Boleto boleto = boletoRepository.buscaBoletoPeloId(idBoleto);
+		boleto.altera(boletoAlteracaoRequest);
+		boletoRepository.salvaBoleto(boleto);
+		log.info("[finaliza] BoletoApplicationService - alteraBoletoDoClienteComId");
 	}
 }

@@ -16,6 +16,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import br.com.naturaves.cobrancanaturaves.boleto.apllication.api.BoletoAlteracaoRequest;
 import br.com.naturaves.cobrancanaturaves.boleto.apllication.api.BoletoRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -56,5 +57,14 @@ public class Boleto {
 		this.valorDoBoleto = boletoRequest.getValorDoBoleto();
 		this.grupoEmpresarial = boletoRequest.getGrupoEmpresarial();
 		this.dataHoraDaCadastro = LocalDateTime.now();
+	}
+
+	public void altera(BoletoAlteracaoRequest boletoRequest) {
+		this.numeroBoleto = boletoRequest.getNumeroBoleto();
+		this.numeroDaParcela = boletoRequest.getNumeroDaParcela();
+		this.dataDoVencimento = boletoRequest.getDataDoVencimento();
+		this.valorDoBoleto = boletoRequest.getValorDoBoleto();
+		this.grupoEmpresarial = boletoRequest.getGrupoEmpresarial();
+		this.dataHoraDoUltimaAlteracao = LocalDateTime.now();
 	}
 }

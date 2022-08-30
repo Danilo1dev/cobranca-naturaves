@@ -57,6 +57,7 @@ public class BoletoController implements BoletoAPI {
 			@Valid BoletoAlteracaoRequest boletoAlteracaoRequest) {
 		log.info("[inicia] BoletoController - patchBoleto");
 		log.info("[idCliente]{} - [idBoleto] {}",idCliente, idBoleto);
+		boletoService.alteraBoletoDoClienteComId(idCliente, idBoleto, boletoAlteracaoRequest);
 		log.info("[finaliza] BoletoController - patchBoleto");
 	}
 }
