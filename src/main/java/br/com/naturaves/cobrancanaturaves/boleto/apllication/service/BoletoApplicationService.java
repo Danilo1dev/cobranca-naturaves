@@ -44,6 +44,7 @@ public class BoletoApplicationService implements BoletoService {
 	@Override
 	public BoletoDetalhadoResponse buscaBoletoDoClienteComId(UUID idCliente, UUID idBoleto) {
 		log.info("[inicia] BoletoApplicationService - buscaBoletoDoClienteComId");
+		clienteService.buscaClienteAtravesID(idCliente);
 		Boleto boleto = boletoRepository.buscaBoletoPeloId(idBoleto);
 		log.info("[finaliza] BoletoApplicationService - buscaBoletoDoClienteComId");
 		return new BoletoDetalhadoResponse(boleto);
@@ -52,6 +53,9 @@ public class BoletoApplicationService implements BoletoService {
 	@Override
 	public void deletaBoletoDoClienteComId(UUID idCliente, UUID idBoleto) {
 		log.info("[inicia] BoletoApplicationService - deletaBoletoDoClienteComId");
+		clienteService.buscaClienteAtravesID(idCliente);
+		Boleto boleto = boletoRepository.buscaBoletoPeloId(idBoleto);
+		boletoRepository.deletaBoletoId(boleto);
 		log.info("[finaliza] BoletoApplicationService - deletaBoletoDoClienteComId");	
 	}
 }

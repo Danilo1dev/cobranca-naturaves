@@ -8,4 +8,5 @@ public interface BoletoRepository {
 	Boleto salvaBoleto(Boleto boleto);
 	List<Boleto> buscaBoletoDoClienteComId(UUID idCliente);
 	Boleto buscaBoletoPeloId(UUID idBoleto);
+	void deletaBoletoId(Boleto boleto);
 }

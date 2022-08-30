@@ -36,8 +36,15 @@ public class BoletoInfraRepository implements BoletoRepository {
 	public Boleto buscaBoletoPeloId(UUID idBoleto) {
 		log.info("[inicia] BoletoInfraRepository - buscaBoletoPeloId");
 		var boleto = boletoSpringDataJPARepository.findById(idBoleto)
-				.orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Boleto não encontrado pelo idBoleto" + idBoleto));
+				.orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Boleto não encontrado pelo idBoleto " + idBoleto));
 		log.info("[finaliza] BoletoInfraRepository - buscaBoletoPeloId");
 		return boleto;
+	}
+
+	@Override
+	public void deletaBoletoId(Boleto boleto) {
+		log.info("[inicia] BoletoInfraRepository - deletaBoletoId");
+		boletoSpringDataJPARepository.delete(boleto);
+		log.info("[finaliza] BoletoInfraRepository - deletaBoletoId");
 	}
 }
