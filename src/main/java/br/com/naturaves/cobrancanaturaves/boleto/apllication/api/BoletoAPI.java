@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.naturaves.cobrancanaturaves.cliente.application.api.ClienteDetalhadoResponse;
-
 @RestController
 @RequestMapping("/v1/cliente/{idCliente}/boleto")
 public interface BoletoAPI {

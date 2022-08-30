@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import org.springframework.stereotype.Service;
 
 import br.com.naturaves.cobrancanaturaves.boleto.apllication.api.BoletoClienteListResponse;
+import br.com.naturaves.cobrancanaturaves.boleto.apllication.api.BoletoDetalhadoResponse;
 import br.com.naturaves.cobrancanaturaves.boleto.apllication.api.BoletoRequest;
 import br.com.naturaves.cobrancanaturaves.boleto.apllication.api.BoletoResponse;
 import br.com.naturaves.cobrancanaturaves.boleto.domain.Boleto;
@@ -38,5 +39,12 @@ public class BoletoApplicationService implements BoletoService {
 		List<Boleto> boletoDoCliente = boletoRepository.buscaBoletoDoClienteComId(idCliente);
 		log.info("[finaliza] BoletoApplicationService - buscaBoletoDoClienteComId");
 		return BoletoClienteListResponse.converte(boletoDoCliente);
+	}
+
+	@Override
+	public BoletoDetalhadoResponse buscaBoletoDoClienteComId(UUID idCliente, UUID idBoleto) {
+		log.info("[inicia] BoletoApplicationService - buscaBoletoDoClienteComId");
+		log.info("[finaliza] BoletoApplicationService - buscaBoletoDoClienteComId");
+		return null;
 	}
 }
