@@ -2,7 +2,9 @@ package br.com.naturaves.cobrancanaturaves.boleto.apllication.api;
 
 import java.util.List;
 import java.util.UUID;
+
 import javax.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,6 +38,6 @@ public interface BoletoAPI {
 	
 	@PatchMapping(value = "/{idBoleto}")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
-	BoletoResponse patchBoleto(@PathVariable UUID idCliente,@PathVariable UUID idBoleto,
+	void patchBoleto(@PathVariable UUID idCliente,@PathVariable UUID idBoleto,
 			@Valid @RequestBody BoletoAlteracaoRequest boletoAlteracaoRequest);
 }

@@ -53,11 +53,10 @@ public class BoletoController implements BoletoAPI {
 	}
 
 	@Override
-	public BoletoResponse patchBoleto(UUID idCliente, UUID idBoleto,
+	public void patchBoleto(UUID idCliente, UUID idBoleto,
 			@Valid BoletoAlteracaoRequest boletoAlteracaoRequest) {
 		log.info("[inicia] BoletoController - patchBoleto");
 		log.info("[idCliente]{} - [idBoleto] {}",idCliente, idBoleto);
 		log.info("[finaliza] BoletoController - patchBoleto");
-		return null;
 	}
 }
