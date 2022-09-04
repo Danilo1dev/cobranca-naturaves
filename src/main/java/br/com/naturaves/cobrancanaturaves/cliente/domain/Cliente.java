@@ -13,8 +13,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
+import br.com.naturaves.cobrancanaturaves.cliente.application.api.ClienteAlteracaoRequest;
 import br.com.naturaves.cobrancanaturaves.cliente.application.api.clienteRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -30,10 +29,12 @@ public class Cliente {
 	private UUID idCliente;
 
 	@NotBlank
+	@Column(unique = true)
 	private String codCliente;
 	@NotBlank
+	@Column(unique = true)
 	private String razaoSocial;
-	private Inscricao inscricao;
+	private InscricaoSocial inscricaoSocial;
 	@NotBlank
 	private String telefone;
 	@Email
@@ -49,11 +50,19 @@ public class Cliente {
 	public Cliente(clienteRequest clienteRequest) {
 		this.codCliente = clienteRequest.getCodCliente();
 		this.razaoSocial = clienteRequest.getRazaoSocial();
-		this.inscricao = clienteRequest.getInscricao();
+		this.inscricaoSocial = clienteRequest.getInscricaoSocial();
 		this.telefone = clienteRequest.getTelefone();
 		this.email = clienteRequest.getEmail();
 		this.vendedor = clienteRequest.getVendedor();
 		this.dataDoCadastro = clienteRequest.getDataDoCadastro();
 		this.dataHoraDaCadastro = LocalDateTime.now();
+	}
+
+	public void altera(ClienteAlteracaoRequest clienteAlteracaoRequest) {
+		this.inscricaoSocial = clienteAlteracaoRequest.getInscricaoSocial();
+		this.telefone = clienteAlteracaoRequest.getTelefone();
+		this.email = clienteAlteracaoRequest.getEmail();
+		this.vendedor = clienteAlteracaoRequest.getVendedor();
+		this.dataHoraDoUltimaAlteracao = LocalDateTime.now();
 	}
 }

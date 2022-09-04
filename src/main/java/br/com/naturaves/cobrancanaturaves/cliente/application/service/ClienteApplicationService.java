@@ -3,8 +3,11 @@ package br.com.naturaves.cobrancanaturaves.cliente.application.service;
 import java.util.List;
 import java.util.UUID;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Service;
 
+import br.com.naturaves.cobrancanaturaves.cliente.application.api.ClienteAlteracaoRequest;
 import br.com.naturaves.cobrancanaturaves.cliente.application.api.ClienteDetalhadoResponse;
 import br.com.naturaves.cobrancanaturaves.cliente.application.api.ClienteListResponse;
 import br.com.naturaves.cobrancanaturaves.cliente.application.api.ClienteResponse;
@@ -44,5 +47,22 @@ public class ClienteApplicationService implements ClienteService {
 		Cliente cliente = clienteRepository.buscaClienteAtravesId(idCliente);
 		log.info("[finaliza] ClienteApplicationService - buscaClienteAtravesId");
 		return new ClienteDetalhadoResponse(cliente);
+	}
+
+	@Override
+	public void deletaClienteAtravesID(UUID idCliente) {
+		log.info("[inicia] ClienteApplicationService - deletaClienteAtravesID");
+		Cliente cliente = clienteRepository.buscaClienteAtravesId(idCliente);
+		clienteRepository.deletaCliente(cliente);
+		log.info("[finaliza] ClienteApplicationService - deletaClienteAtravesID");
+	}
+
+	@Override
+	public void patchAlteracliente(UUID idCliente, @Valid ClienteAlteracaoRequest clienteAlteracaoRequest) {
+		log.info("[inicia] ClienteApplicationService - patchAlteracliente");
+		Cliente cliente = clienteRepository.buscaClienteAtravesId(idCliente);
+		cliente.altera(clienteAlteracaoRequest);
+		clienteRepository.salva(cliente);
+		log.info("[finaliza] ClienteApplicationService - patchAlteracliente");
 	}
 }
