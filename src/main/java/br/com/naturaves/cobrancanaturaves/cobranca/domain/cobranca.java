@@ -36,6 +36,6 @@ public class cobranca {
 		@Size(max = 200)
 		private String anotacao;
 		
-		private LocalDateTime dataDaCobranca;
 		private LocalDate dataDeRetorno;
+		private LocalDateTime dataDaCobranca;
 }
