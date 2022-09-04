@@ -1,4 +1,4 @@
-package br.com.naturaves.cobrancanaturaves.boleto.apllication.service;
+package br.com.naturaves.cobrancanaturaves.boleto.apllication.repository;
 
 import java.util.List;
 import java.util.UUID;
