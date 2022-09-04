@@ -11,7 +11,6 @@ import lombok.Value;
 public class CobrancaRequest {
 	
 	@NotNull
-	@NotBlank(message = "Insira o valor negociado")
 	private Double valorNegociado;
 	@NotNull
 	@NotBlank(message = "Insira uma descrição")

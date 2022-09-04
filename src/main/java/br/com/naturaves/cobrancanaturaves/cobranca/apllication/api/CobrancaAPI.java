@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/v1/cliente/{idCliente}/boleto")
+@RequestMapping("/v1/cliente/{idBoleto}/cobranca")
 public interface CobrancaAPI {
 	
 	@PostMapping
 	@ResponseStatus(code = HttpStatus.CREATED)
-	CobrancaResponse postCobranca(@PathVariable UUID idCliente, 
+	CobrancaResponse postCobranca(@PathVariable UUID idBoleto, 
 			@Valid @RequestBody CobrancaRequest cobrancaRequest);
 }
