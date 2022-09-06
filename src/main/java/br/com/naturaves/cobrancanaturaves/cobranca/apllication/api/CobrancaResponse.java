@@ -5,5 +5,5 @@ import lombok.Value;
 
 @Value
 public class CobrancaResponse {
-	private UUID idBoleto;
+	private UUID idCobranca;
 }

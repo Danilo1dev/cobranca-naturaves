@@ -7,4 +7,5 @@ import br.com.naturaves.cobrancanaturaves.cobranca.apllication.api.CobrancaRespo
 
 public interface CobrancaService {
 	CobrancaResponse criaCobranca(UUID idBoleto, @Valid CobrancaRequest cobrancaRequest);
+	void buscaBoletoAtravesID(UUID idBoleto);
 }
