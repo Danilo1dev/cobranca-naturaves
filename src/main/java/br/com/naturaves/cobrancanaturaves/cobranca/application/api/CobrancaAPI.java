@@ -1,10 +1,8 @@
-package br.com.naturaves.cobrancanaturaves.cobranca.apllication.api;
+package br.com.naturaves.cobrancanaturaves.cobranca.application.api;
 
 import java.util.List;
 import java.util.UUID;
-
 import javax.validation.Valid;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

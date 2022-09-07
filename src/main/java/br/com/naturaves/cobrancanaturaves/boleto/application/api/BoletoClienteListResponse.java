@@ -1,11 +1,10 @@
-package br.com.naturaves.cobrancanaturaves.boleto.apllication.api;
+package br.com.naturaves.cobrancanaturaves.boleto.application.api;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
-
 import br.com.naturaves.cobrancanaturaves.boleto.domain.Boleto;
 import br.com.naturaves.cobrancanaturaves.boleto.domain.GrupoEmpresarial;
 import lombok.Value;

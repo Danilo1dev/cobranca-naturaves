@@ -1,4 +1,4 @@
-package br.com.naturaves.cobrancanaturaves.cobranca.apllication.api;
+package br.com.naturaves.cobrancanaturaves.cobranca.application.api;
 
 import java.util.UUID;
 import lombok.Value;

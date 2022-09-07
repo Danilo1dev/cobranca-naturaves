@@ -3,17 +3,18 @@ package br.com.naturaves.cobrancanaturaves.cobranca.domain;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import br.com.naturaves.cobrancanaturaves.cobranca.apllication.api.CobrancaRequest;
+
+import br.com.naturaves.cobrancanaturaves.cobranca.application.api.CobrancaRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -34,7 +35,6 @@ public class Cobranca {
 		private Double valorNegociado;
 		@NotNull
 		@NotBlank(message = "Insira uma descrição")
-		@Lob
 		@Size(max = 200)
 		private String anotacao;
 		

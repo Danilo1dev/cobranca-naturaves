@@ -1,10 +1,11 @@
-package br.com.naturaves.cobrancanaturaves.cobranca.apllication.api;
+package br.com.naturaves.cobrancanaturaves.cobranca.application.api;
 
 import java.util.List;
 import java.util.UUID;
 import javax.validation.Valid;
 import org.springframework.web.bind.annotation.RestController;
-import br.com.naturaves.cobrancanaturaves.cobranca.apllication.service.CobrancaService;
+
+import br.com.naturaves.cobrancanaturaves.cobranca.application.service.CobrancaService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 

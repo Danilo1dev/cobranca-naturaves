@@ -1,15 +1,18 @@
-package br.com.naturaves.cobrancanaturaves.cobranca.apllication.api;
+package br.com.naturaves.cobrancanaturaves.cobranca.application.api;
 
 import java.time.LocalDate;
+
 import javax.persistence.Lob;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
 import lombok.Value;
 
 @Value
+
 public class CobrancaRequest {
-	
+
 	@NotNull
 	private Double valorNegociado;
 	@NotNull

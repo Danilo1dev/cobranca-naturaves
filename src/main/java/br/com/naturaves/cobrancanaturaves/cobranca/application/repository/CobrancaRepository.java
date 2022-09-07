@@ -1,4 +1,4 @@
-package br.com.naturaves.cobrancanaturaves.cobranca.apllication.repository;
+package br.com.naturaves.cobrancanaturaves.cobranca.application.repository;
 
 import java.util.List;
 import java.util.UUID;

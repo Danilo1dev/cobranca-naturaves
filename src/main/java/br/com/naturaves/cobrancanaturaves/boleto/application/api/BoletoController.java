@@ -1,10 +1,11 @@
-package br.com.naturaves.cobrancanaturaves.boleto.apllication.api;
+package br.com.naturaves.cobrancanaturaves.boleto.application.api;
 
 import java.util.List;
 import java.util.UUID;
 import javax.validation.Valid;
 import org.springframework.web.bind.annotation.RestController;
-import br.com.naturaves.cobrancanaturaves.boleto.apllication.service.BoletoService;
+
+import br.com.naturaves.cobrancanaturaves.boleto.application.service.BoletoService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 

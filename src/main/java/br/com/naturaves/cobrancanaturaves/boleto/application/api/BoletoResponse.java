@@ -1,4 +1,4 @@
-package br.com.naturaves.cobrancanaturaves.boleto.apllication.api;
+package br.com.naturaves.cobrancanaturaves.boleto.application.api;
 
 import java.util.UUID;
 
