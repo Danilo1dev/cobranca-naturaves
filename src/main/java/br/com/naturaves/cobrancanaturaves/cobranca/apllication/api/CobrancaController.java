@@ -27,7 +27,8 @@ public class CobrancaController implements CobrancaAPI {
 	public List<CobrancaBoletoListResponse> getCobrancaDoBoletoComId(UUID idBoleto) {
 		log.info("[inicia] CobrancaController - getCobrancaDoBoletoComId");
 		log.info("[idBoleto]{}",idBoleto);
+		List<CobrancaBoletoListResponse> cobrancaDoBoleto = cobrancaService.buscaCobrancaDoBoletoComId(idBoleto);
 		log.info("[finaliza] CobrancaController - getCobrancaDoBoletoComId");
-		return null;
+		return cobrancaDoBoleto;
 	}
 }
