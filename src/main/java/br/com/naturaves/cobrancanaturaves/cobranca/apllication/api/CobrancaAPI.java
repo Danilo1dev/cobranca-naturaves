@@ -1,8 +1,12 @@
 package br.com.naturaves.cobrancanaturaves.cobranca.apllication.api;
 
+import java.util.List;
 import java.util.UUID;
+
 import javax.validation.Valid;
+
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,4 +21,8 @@ public interface CobrancaAPI {
 	@ResponseStatus(code = HttpStatus.CREATED)
 	CobrancaResponse postCobranca(@PathVariable UUID idBoleto, 
 			@Valid @RequestBody CobrancaRequest cobrancaRequest);
+	
+	@GetMapping
+	@ResponseStatus(code = HttpStatus.OK)
+	List<CobrancaBoletoListResponse> getCobrancaDoBoletoComId(@PathVariable UUID idBoleto);
 }

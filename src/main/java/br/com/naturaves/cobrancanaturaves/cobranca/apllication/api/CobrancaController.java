@@ -1,5 +1,6 @@
 package br.com.naturaves.cobrancanaturaves.cobranca.apllication.api;
 
+import java.util.List;
 import java.util.UUID;
 import javax.validation.Valid;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,5 +21,13 @@ public class CobrancaController implements CobrancaAPI {
 		CobrancaResponse cobranca = cobrancaService.criaCobranca(idBoleto,cobrancaRequest);
 		log.info("[finaliza] CobrancaController - postCobranca");
 		return cobranca;
+	}
+
+	@Override
+	public List<CobrancaBoletoListResponse> getCobrancaDoBoletoComId(UUID idBoleto) {
+		log.info("[inicia] CobrancaController - getCobrancaDoBoletoComId");
+		log.info("[idBoleto]{}",idBoleto);
+		log.info("[finaliza] CobrancaController - getCobrancaDoBoletoComId");
+		return null;
 	}
 }
