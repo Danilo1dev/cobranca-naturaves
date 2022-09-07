@@ -33,7 +33,8 @@ public class CobrancaApllicationService implements CobrancaService {
 	public List<CobrancaBoletoListResponse> buscaCobrancaDoBoletoComId(UUID idBoleto) {
 		log.info("[inicia] CobrancaApllicationService - buscaCobrancaDoBoletoComId");
 		boletoService.buscaBoletoDoClienteComId(idBoleto);
+		List<Cobranca> cobrancaDoBoleto = cobrancaRepository.buscaCobrancaDoBoletoComId(idBoleto); 
 		log.info("[finaliza] CobrancaApllicationService - buscaCobrancaDoBoletoComId");
-		return null;
+		return CobrancaBoletoListResponse.converte(cobrancaDoBoleto);
 	}
 }
