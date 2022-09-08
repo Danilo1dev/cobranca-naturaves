@@ -3,14 +3,12 @@ package br.com.naturaves.cobrancanaturaves.cliente.application.api;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
-
 import br.com.naturaves.cobrancanaturaves.cliente.domain.Cliente;
 import br.com.naturaves.cobrancanaturaves.cliente.domain.InscricaoSocial;
 import lombok.Value;
 
 @Value
 public class ClienteListResponse {
-
 	private UUID idCliente;
 	private String codCliente;
 	private String razaoSocial;

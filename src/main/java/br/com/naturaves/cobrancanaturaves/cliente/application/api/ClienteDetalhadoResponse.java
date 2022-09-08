@@ -2,14 +2,12 @@ package br.com.naturaves.cobrancanaturaves.cliente.application.api;
 
 import java.time.LocalDate;
 import java.util.UUID;
-
 import br.com.naturaves.cobrancanaturaves.cliente.domain.Cliente;
 import br.com.naturaves.cobrancanaturaves.cliente.domain.InscricaoSocial;
 import lombok.Value;
 
 @Value
 public class ClienteDetalhadoResponse {
-
 	private UUID idCliente;
 	private String codCliente;
 	private String razaoSocial;

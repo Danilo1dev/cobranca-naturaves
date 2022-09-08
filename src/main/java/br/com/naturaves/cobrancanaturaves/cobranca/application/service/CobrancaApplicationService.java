@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.UUID;
 import javax.validation.Valid;
 import org.springframework.stereotype.Service;
-
 import br.com.naturaves.cobrancanaturaves.boleto.application.service.BoletoService;
 import br.com.naturaves.cobrancanaturaves.cobranca.application.api.CobrancaBoletoListResponse;
 import br.com.naturaves.cobrancanaturaves.cobranca.application.api.CobrancaRequest;

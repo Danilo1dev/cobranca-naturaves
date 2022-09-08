@@ -3,7 +3,6 @@ package br.com.naturaves.cobrancanaturaves.cobranca.domain;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,7 +12,6 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
 import br.com.naturaves.cobrancanaturaves.cobranca.application.api.CobrancaRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -31,7 +29,6 @@ public class Cobranca {
 		@Column(columnDefinition = "uuid", name = "idBoleto", nullable = false)
 		private UUID idBoleto;
 		@NotNull
-		@NotBlank(message = "Insira o valor negociado")
 		private Double valorNegociado;
 		@NotNull
 		@NotBlank(message = "Insira uma descrição")

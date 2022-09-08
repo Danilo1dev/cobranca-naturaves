@@ -11,7 +11,6 @@ import lombok.Value;
 
 @Value
 public class BoletoClienteListResponse {
-	
 	private UUID idBoleto;
 	private String numeroBoleto;
 	private String numeroDaParcela;
