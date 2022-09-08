@@ -23,4 +23,8 @@ public interface CobrancaAPI {
 	@GetMapping
 	@ResponseStatus(code = HttpStatus.OK)
 	List<CobrancaBoletoListResponse> getCobrancaDoBoletoComId(@PathVariable UUID idBoleto);
+	
+	@GetMapping(value = "/{idCobranca}")
+	@ResponseStatus(code = HttpStatus.OK)
+	CobrancaDetalhadoResponse getCobrancaAtravesId(@PathVariable UUID idBoleto, @PathVariable UUID idCobranca);
 }

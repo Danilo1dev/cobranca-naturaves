@@ -31,4 +31,12 @@ public class CobrancaController implements CobrancaAPI {
 		log.info("[finaliza] CobrancaController - getCobrancaDoBoletoComId");
 		return cobrancaDoBoleto;
 	}
+
+	@Override
+	public CobrancaDetalhadoResponse getCobrancaAtravesId(UUID idBoleto, UUID idCobranca) {
+		log.info("[inicia] CobrancaController - getCobrancaAtravesId");
+		log.info("[idBoleto]{} - [idCobranca]{}", idBoleto, idCobranca);
+		log.info("[finaliza] CobrancaController - getCobrancaAtravesId");
+		return null;
+	}
 }
