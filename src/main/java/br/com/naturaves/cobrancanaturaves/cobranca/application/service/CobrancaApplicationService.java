@@ -6,6 +6,7 @@ import javax.validation.Valid;
 import org.springframework.stereotype.Service;
 import br.com.naturaves.cobrancanaturaves.boleto.application.service.BoletoService;
 import br.com.naturaves.cobrancanaturaves.cobranca.application.api.CobrancaBoletoListResponse;
+import br.com.naturaves.cobrancanaturaves.cobranca.application.api.CobrancaDetalhadoResponse;
 import br.com.naturaves.cobrancanaturaves.cobranca.application.api.CobrancaRequest;
 import br.com.naturaves.cobrancanaturaves.cobranca.application.api.CobrancaResponse;
 import br.com.naturaves.cobrancanaturaves.cobranca.application.repository.CobrancaRepository;
@@ -37,5 +38,12 @@ public class CobrancaApplicationService implements CobrancaService {
 		List<Cobranca> cobrancaDoBoleto = cobrancaRepository.buscaCobrancaDoBoletoComId(idBoleto); 
 		log.info("[finaliza] CobrancaApplicationService - buscaCobrancaDoBoletoComId");
 		return CobrancaBoletoListResponse.converte(cobrancaDoBoleto);
+	}
+
+	@Override
+	public CobrancaDetalhadoResponse buscaCobrancaDoBoletoComId(UUID idBoleto, UUID idCobranca) {
+		log.info("[inicia] CobrancaApplicationService - buscaCobrancaDoBoletoComId");
+		log.info("[finaliza] CobrancaApplicationService - buscaCobrancaDoBoletoComId");
+		return null;
 	}
 }
