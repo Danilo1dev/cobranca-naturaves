@@ -43,7 +43,9 @@ public class CobrancaApplicationService implements CobrancaService {
 	@Override
 	public CobrancaDetalhadoResponse buscaCobrancaDoBoletoComId(UUID idBoleto, UUID idCobranca) {
 		log.info("[inicia] CobrancaApplicationService - buscaCobrancaDoBoletoComId");
+		boletoService.buscaBoletoComIdBoleto(idBoleto);
+		Cobranca cobranca = cobrancaRepository.buscaCobrancaComId(idCobranca);
 		log.info("[finaliza] CobrancaApplicationService - buscaCobrancaDoBoletoComId");
-		return null;
+		return new CobrancaDetalhadoResponse(cobranca);
 	}
 }
