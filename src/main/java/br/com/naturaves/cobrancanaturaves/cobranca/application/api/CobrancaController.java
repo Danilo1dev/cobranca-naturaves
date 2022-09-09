@@ -54,6 +54,7 @@ public class CobrancaController implements CobrancaAPI {
 			@Valid CobrancaAlteracaoRequest cobrancaAlteracaoRequest) {
 		log.info("[inicia] CobrancaController - patchCobranca");
 		log.info("[idBoleto]{} - [idCobranca]{}", idBoleto, idCobranca);
+		cobrancaService.alteraCobrancaDoBoletoComId(idBoleto,idCobranca, cobrancaAlteracaoRequest);
 		log.info("[finaliza] CobrancaController - patchCobranca");
 	}
 }

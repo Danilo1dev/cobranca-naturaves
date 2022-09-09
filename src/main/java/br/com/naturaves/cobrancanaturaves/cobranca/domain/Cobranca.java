@@ -12,6 +12,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import br.com.naturaves.cobrancanaturaves.cobranca.application.api.CobrancaAlteracaoRequest;
 import br.com.naturaves.cobrancanaturaves.cobranca.application.api.CobrancaRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -37,6 +38,7 @@ public class Cobranca {
 		
 		private LocalDate dataDeRetorno;
 		private LocalDateTime dataDaCobranca;
+		private LocalDateTime dataHoraDoUltimaAlteracao;
 		
 		public Cobranca(UUID idBoleto, @Valid CobrancaRequest cobrancaRequest) {
 			this.idBoleto = idBoleto;
@@ -44,5 +46,12 @@ public class Cobranca {
 			this.anotacao = cobrancaRequest.getAnotacao();
 			this.dataDeRetorno = cobrancaRequest.getDataDeRetorno();
 			this.dataDaCobranca = LocalDateTime.now();
+		}
+
+		public void altera(CobrancaAlteracaoRequest cobrancaAlteracaoRequest) {
+			this.valorNegociado = cobrancaAlteracaoRequest.getValorNegociado();
+			this.anotacao = cobrancaAlteracaoRequest.getAnotacao();
+			this.dataDeRetorno = cobrancaAlteracaoRequest.getDataDeRetorno();
+			this.dataHoraDoUltimaAlteracao = LocalDateTime.now();
 		}
 }
