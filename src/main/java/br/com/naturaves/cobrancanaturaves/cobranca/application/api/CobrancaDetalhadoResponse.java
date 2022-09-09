@@ -8,15 +8,15 @@ import lombok.Value;
 @Value
 public class CobrancaDetalhadoResponse {
 
-	private UUID idCobranca;
 	private UUID idBoleto;
+	private UUID idCobranca;
 	private Double valorNegociado;
 	private String anotacao;
 	private LocalDate dataDeRetorno;
 
 	public CobrancaDetalhadoResponse(Cobranca cobranca) {
-		this.idCobranca = cobranca.getIdCobranca();
 		this.idBoleto = cobranca.getIdBoleto();
+		this.idCobranca = cobranca.getIdCobranca();
 		this.valorNegociado = cobranca.getValorNegociado();
 		this.anotacao = cobranca.getAnotacao();
 		this.dataDeRetorno = cobranca.getDataDeRetorno();

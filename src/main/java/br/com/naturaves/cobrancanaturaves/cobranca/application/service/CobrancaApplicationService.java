@@ -48,4 +48,10 @@ public class CobrancaApplicationService implements CobrancaService {
 		log.info("[finaliza] CobrancaApplicationService - buscaCobrancaDoBoletoComId");
 		return new CobrancaDetalhadoResponse(cobranca);
 	}
+
+	@Override
+	public void deletaCobrancaDoBoletoComId(UUID idBoleto, UUID idCobranca) {
+		log.info("[inicia] CobrancaApplicationService - deletaCobrancaDoBoletoComId");
+		log.info("[finaliza] CobrancaApplicationService - deletaCobrancaDoBoletoComId");
+	}
 }

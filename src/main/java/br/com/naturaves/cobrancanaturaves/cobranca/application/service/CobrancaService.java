@@ -12,4 +12,5 @@ public interface CobrancaService {
 	CobrancaResponse criaCobranca(UUID idBoleto, @Valid CobrancaRequest cobrancaRequest);
 	List<CobrancaBoletoListResponse> buscaCobrancaDoBoletoComId(UUID idBoleto);
 	CobrancaDetalhadoResponse buscaCobrancaDoBoletoComId(UUID idBoleto, UUID idCobranca);
+	void deletaCobrancaDoBoletoComId(UUID idBoleto, UUID idCobranca);
 }
