@@ -52,6 +52,9 @@ public class CobrancaApplicationService implements CobrancaService {
 	@Override
 	public void deletaCobrancaDoBoletoComId(UUID idBoleto, UUID idCobranca) {
 		log.info("[inicia] CobrancaApplicationService - deletaCobrancaDoBoletoComId");
+		boletoService.buscaBoletoComIdBoleto(idBoleto);
+		Cobranca cobranca = cobrancaRepository.buscaCobrancaComId(idCobranca);
+		cobrancaRepository.deletaCobranca(cobranca);
 		log.info("[finaliza] CobrancaApplicationService - deletaCobrancaDoBoletoComId");
 	}
 }

@@ -41,4 +41,11 @@ public class CobrancaInfraRepository implements CobrancaRepository {
 		log.info("[finaliza] CobrancaInfraRepository - buscaCobrancaComId");
 		return cobranca;
 	}
+
+	@Override
+	public void deletaCobranca(Cobranca cobranca) {
+		log.info("[inicia] CobrancaInfraRepository - deletaCobranca");
+		cobrancaSpringDataJPARepository.delete(cobranca);
+		log.info("[finaliza] CobrancaInfraRepository - deletaCobranca");
+	}
 }

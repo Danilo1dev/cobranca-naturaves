@@ -8,4 +8,5 @@ public interface CobrancaRepository {
 	Cobranca salvaCobranca(Cobranca cobranca);
 	List<Cobranca> buscaCobrancaDoBoletoComId(UUID idBoleto);
 	Cobranca buscaCobrancaComId(UUID idCobranca);
+	void deletaCobranca(Cobranca cobranca);
 }
