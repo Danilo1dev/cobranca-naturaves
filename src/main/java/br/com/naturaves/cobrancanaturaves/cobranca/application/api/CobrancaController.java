@@ -48,4 +48,12 @@ public class CobrancaController implements CobrancaAPI {
 		cobrancaService.deletaCobrancaDoBoletoComId(idBoleto,idCobranca);
 		log.info("[finaliza] CobrancaController - deletaCobrancaDoBoletoComId");
 	}
+
+	@Override
+	public void patchCobranca(UUID idBoleto, UUID idCobranca,
+			@Valid CobrancaAlteracaoRequest cobrancaAlteracaoRequest) {
+		log.info("[inicia] CobrancaController - patchCobranca");
+		log.info("[idBoleto]{} - [idCobranca]{}", idBoleto, idCobranca);
+		log.info("[finaliza] CobrancaController - patchCobranca");
+	}
 }

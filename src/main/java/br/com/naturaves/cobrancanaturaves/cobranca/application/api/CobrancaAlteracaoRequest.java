@@ -7,7 +7,7 @@ import javax.validation.constraints.Size;
 import lombok.Value;
 
 @Value
-public class CobrancaRequest {
+public class CobrancaAlteracaoRequest {
 	@NotNull
 	private Double valorNegociado;
 	@NotNull
