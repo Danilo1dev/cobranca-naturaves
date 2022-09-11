@@ -2,9 +2,7 @@ package br.com.naturaves.cobrancanaturaves.cliente.infra;
 
 import java.util.List;
 import java.util.UUID;
-
 import org.springframework.stereotype.Repository;
-
 import br.com.naturaves.cobrancanaturaves.cliente.application.repository.ClienteRepository;
 import br.com.naturaves.cobrancanaturaves.cliente.domain.Cliente;
 import lombok.RequiredArgsConstructor;

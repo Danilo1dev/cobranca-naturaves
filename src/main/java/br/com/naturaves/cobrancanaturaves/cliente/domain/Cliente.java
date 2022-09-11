@@ -3,16 +3,16 @@ package br.com.naturaves.cobrancanaturaves.cliente.domain;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-
 import br.com.naturaves.cobrancanaturaves.cliente.application.api.ClienteAlteracaoRequest;
 import br.com.naturaves.cobrancanaturaves.cliente.application.api.clienteRequest;
 import lombok.AccessLevel;
@@ -34,6 +34,7 @@ public class Cliente {
 	@NotBlank
 	@Column(unique = true)
 	private String razaoSocial;
+	@Enumerated(EnumType.STRING)
 	private InscricaoSocial inscricaoSocial;
 	@NotBlank
 	private String telefone;
