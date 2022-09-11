@@ -18,5 +18,4 @@ public class CobrancaNaturavesApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CobrancaNaturavesApplication.class, args);
 	}
-
 }
