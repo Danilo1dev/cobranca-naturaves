@@ -14,9 +14,7 @@ public class CobrancaNaturavesApplication {
 	public String getHomeTeste() {
 		return "Cobranca Naturaves - API";
 	}
-
 	public static void main(String[] args) {
 		SpringApplication.run(CobrancaNaturavesApplication.class, args);
 	}
-
 }

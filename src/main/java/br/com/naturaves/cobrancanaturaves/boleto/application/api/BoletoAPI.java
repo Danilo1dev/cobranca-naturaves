@@ -1,4 +1,4 @@
-package br.com.naturaves.cobrancanaturaves.cliente.application.api;
+package br.com.naturaves.cobrancanaturaves.boleto.application.api;
 
 import java.util.List;
 import java.util.UUID;
@@ -15,26 +15,27 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/v1/cliente")
-public interface ClienteAPI {
+@RequestMapping("/v1/cliente/{idCliente}/boleto")
+public interface BoletoAPI {
 	@PostMapping
 	@ResponseStatus(code = HttpStatus.CREATED)
-	ClienteResponse postCliente(@Valid @RequestBody clienteRequest clienteRequest);
+	BoletoResponse postBoleto(@PathVariable UUID idCliente, 
+			@Valid @RequestBody BoletoRequest boletoRequest);
 	
 	@GetMapping
 	@ResponseStatus(code = HttpStatus.OK)
-	List<ClienteListResponse> getTodosCliente();
+	List<BoletoClienteListResponse> getBoletoDoClienteComId(@PathVariable UUID idCliente);
 	
-	@GetMapping(value = "/{idCliente}")
+	@GetMapping(value = "/{idBoleto}")
 	@ResponseStatus(code = HttpStatus.OK)
-	ClienteDetalhadoResponse getClienteAtravesId(@PathVariable UUID idCliente);
+	BoletoDetalhadoResponse getBoletoAtravesId(@PathVariable UUID idCliente, @PathVariable UUID idBoleto);
 	
-	@DeleteMapping(value = "/{idCliente}")
+	@DeleteMapping(value = "/{idBoleto}")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
-	void deletaclienteAtravesId(@PathVariable UUID idCliente);
+	void deletaBoletoDoClienteComId(@PathVariable UUID idCliente, @PathVariable UUID idBoleto);
 	
-	@PatchMapping(value = "/{idCliente}")
+	@PatchMapping(value = "/{idBoleto}")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
-	void patchAlteraCliente(@PathVariable UUID idCliente,
-			@Valid @RequestBody ClienteAlteracaoRequest clienteAlteracaoRequest);
+	void patchBoleto(@PathVariable UUID idCliente,@PathVariable UUID idBoleto,
+			@Valid @RequestBody BoletoAlteracaoRequest boletoAlteracaoRequest);
 }
