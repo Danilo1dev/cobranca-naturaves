@@ -8,18 +8,18 @@ import br.com.naturaves.cobrancanaturaves.cliente.domain.InscricaoSocial;
 import lombok.Value;
 
 @Value
-public class clienteRequest {
+public class ClienteRequest {
 	@NotBlank
-	private String codCliente;
+	private String cliente;
 	@NotBlank
-	private String razaoSocial;
+	private String nomeCliente;
 	private InscricaoSocial inscricaoSocial;
 	@NotBlank
 	private String telefone;
 	@Email
 	private String email;
 	@NotBlank
-	private String vendedor;
+	private String nomeVendedor;
 	@NotNull
 	private LocalDate dataDoCadastro;
 }
