@@ -1,5 +1,6 @@
 package br.com.naturaves.cobrancanaturaves.boleto.domain;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -40,7 +41,7 @@ public class Boleto {
 	@NotNull
 	private LocalDate dataVencimento;
 	@NotNull
-	private Double saldoDevedor;
+	private BigDecimal saldoDevedor;
 	@Enumerated(EnumType.STRING)
 	private GrupoEmpresarial grupoEmpresarial;
 

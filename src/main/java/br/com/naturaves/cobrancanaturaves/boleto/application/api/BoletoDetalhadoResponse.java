@@ -1,5 +1,6 @@
 package br.com.naturaves.cobrancanaturaves.boleto.application.api;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -13,7 +14,7 @@ public class BoletoDetalhadoResponse {
 	private String documento;
 	private String numeroDaParcela;
 	private LocalDate dataVencimento;
-	private Double saldoDevedor;
+	private BigDecimal saldoDevedor;
 	private GrupoEmpresarial grupoEmpresarial;
 	private LocalDateTime dataHoraDaCadastro;
 	

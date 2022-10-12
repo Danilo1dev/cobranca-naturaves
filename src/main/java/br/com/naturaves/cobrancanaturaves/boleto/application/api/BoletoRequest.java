@@ -1,5 +1,6 @@
 package br.com.naturaves.cobrancanaturaves.boleto.application.api;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -18,6 +19,6 @@ public class BoletoRequest {
 	@NotNull
 	private LocalDate dataVencimento;
 	@NotNull
-	private Double saldoDevedor;
+	private BigDecimal saldoDevedor;
 	private GrupoEmpresarial grupoEmpresarial;
 }
