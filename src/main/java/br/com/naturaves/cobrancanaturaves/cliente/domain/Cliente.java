@@ -30,10 +30,10 @@ public class Cliente {
 
 	@NotBlank
 	@Column(unique = true)
-	private String codCliente;
+	private String cliente;
 	@NotBlank
 	@Column(unique = true)
-	private String razaoSocial;
+	private String nomeCliente;
 	@Enumerated(EnumType.STRING)
 	private InscricaoSocial inscricaoSocial;
 	@NotBlank
@@ -41,7 +41,7 @@ public class Cliente {
 	@Email
 	private String email;
 	@NotBlank
-	private String vendedor;
+	private String nomeVendedor;
 	@NotNull
 	private LocalDate dataDoCadastro;
 
@@ -49,12 +49,12 @@ public class Cliente {
 	private LocalDateTime dataHoraDoUltimaAlteracao;
 
 	public Cliente(clienteRequest clienteRequest) {
-		this.codCliente = clienteRequest.getCodCliente();
-		this.razaoSocial = clienteRequest.getRazaoSocial();
+		this.cliente = clienteRequest.getCodCliente();
+		this.nomeCliente = clienteRequest.getRazaoSocial();
 		this.inscricaoSocial = clienteRequest.getInscricaoSocial();
 		this.telefone = clienteRequest.getTelefone();
 		this.email = clienteRequest.getEmail();
-		this.vendedor = clienteRequest.getVendedor();
+		this.nomeVendedor = clienteRequest.getVendedor();
 		this.dataDoCadastro = clienteRequest.getDataDoCadastro();
 		this.dataHoraDaCadastro = LocalDateTime.now();
 	}
@@ -63,7 +63,7 @@ public class Cliente {
 		this.inscricaoSocial = clienteAlteracaoRequest.getInscricaoSocial();
 		this.telefone = clienteAlteracaoRequest.getTelefone();
 		this.email = clienteAlteracaoRequest.getEmail();
-		this.vendedor = clienteAlteracaoRequest.getVendedor();
+		this.nomeVendedor = clienteAlteracaoRequest.getVendedor();
 		this.dataHoraDoUltimaAlteracao = LocalDateTime.now();
 	}
 }

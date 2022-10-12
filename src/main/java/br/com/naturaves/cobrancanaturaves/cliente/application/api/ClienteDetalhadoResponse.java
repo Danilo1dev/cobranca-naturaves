@@ -19,12 +19,12 @@ public class ClienteDetalhadoResponse {
 
 	public ClienteDetalhadoResponse(Cliente cliente) {
 		this.idCliente = cliente.getIdCliente();
-		this.codCliente = cliente.getCodCliente();
-		this.razaoSocial = cliente.getRazaoSocial();
+		this.codCliente = cliente.getCliente();
+		this.razaoSocial = cliente.getNomeCliente();
 		this.inscricaoSocial = cliente.getInscricaoSocial();
 		this.telefone = cliente.getTelefone();
 		this.email = cliente.getEmail();
-		this.vendedor = cliente.getVendedor();
+		this.vendedor = cliente.getNomeVendedor();
 		this.dataDoCadastro = cliente.getDataDoCadastro();
 	}
 }
