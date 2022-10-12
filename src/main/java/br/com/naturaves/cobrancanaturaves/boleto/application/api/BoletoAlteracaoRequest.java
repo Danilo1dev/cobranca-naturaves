@@ -11,13 +11,13 @@ import lombok.Value;
 public class BoletoAlteracaoRequest {
 	@NotNull
 	@NotBlank(message = "O numero do boleto não pode estar em branco")
-	private String numeroBoleto;
+	private String documento;
 	@NotNull
 	@Size(max = 2)
 	private String numeroDaParcela;
 	@NotNull
-	private LocalDate dataDoVencimento;
+	private LocalDate dataVencimento;
 	@NotNull
-	private Double valorDoBoleto;
+	private Double saldoDevedor;
 	private GrupoEmpresarial grupoEmpresarial;
 }
