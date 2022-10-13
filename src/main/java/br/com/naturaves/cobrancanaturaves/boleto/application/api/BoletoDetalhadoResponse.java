@@ -12,7 +12,7 @@ import lombok.Value;
 public class BoletoDetalhadoResponse {
 	private UUID idBoleto;
 	private String documento;
-	private String numeroDaParcela;
+	private String parcela;
 	private LocalDate dataVencimento;
 	private BigDecimal saldoDevedor;
 	private GrupoEmpresarial grupoEmpresarial;
@@ -21,7 +21,7 @@ public class BoletoDetalhadoResponse {
 	public BoletoDetalhadoResponse(Boleto boleto) {
 		this.idBoleto = boleto.getIdBoleto();
 		this.documento = boleto.getDocumento();
-		this.numeroDaParcela = boleto.getNumeroDaParcela();
+		this.parcela = boleto.getParcela();
 		this.dataVencimento = boleto.getDataVencimento();
 		this.saldoDevedor = boleto.getSaldoDevedor();
 		this.grupoEmpresarial = boleto.getGrupoEmpresarial();

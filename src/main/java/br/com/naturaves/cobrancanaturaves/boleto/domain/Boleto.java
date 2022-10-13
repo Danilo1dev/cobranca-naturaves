@@ -37,7 +37,7 @@ public class Boleto {
 	private String documento;
 	@NotNull
 	@Size(max = 2)
-	private String numeroDaParcela;
+	private String parcela;
 	@NotNull
 	private LocalDate dataVencimento;
 	@NotNull
@@ -51,7 +51,7 @@ public class Boleto {
 	public Boleto(UUID idCliente, @Valid BoletoRequest boletoRequest) {
 		this.idClienteComercial = idCliente;
 		this.documento = boletoRequest.getDocumento();
-		this.numeroDaParcela = boletoRequest.getNumeroDaParcela();
+		this.parcela = boletoRequest.getParcela();
 		this.dataVencimento = boletoRequest.getDataVencimento();
 		this.saldoDevedor = boletoRequest.getSaldoDevedor();
 		this.grupoEmpresarial = boletoRequest.getGrupoEmpresarial();
@@ -60,7 +60,7 @@ public class Boleto {
 
 	public void altera(BoletoAlteracaoRequest boletoRequest) {
 		this.documento = boletoRequest.getDocumento();
-		this.numeroDaParcela = boletoRequest.getNumeroDaParcela();
+		this.parcela = boletoRequest.getParcela();
 		this.dataVencimento = boletoRequest.getDataVencimento();
 		this.saldoDevedor = boletoRequest.getSaldoDevedor();
 		this.grupoEmpresarial = boletoRequest.getGrupoEmpresarial();

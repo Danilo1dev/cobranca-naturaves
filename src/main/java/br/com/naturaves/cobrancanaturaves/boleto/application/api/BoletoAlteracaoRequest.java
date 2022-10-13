@@ -15,7 +15,7 @@ public class BoletoAlteracaoRequest {
 	private String documento;
 	@NotNull
 	@Size(max = 2)
-	private String numeroDaParcela;
+	private String parcela;
 	@NotNull
 	private LocalDate dataVencimento;
 	@NotNull
