@@ -16,12 +16,16 @@ import javax.validation.constraints.NotNull;
 import br.com.naturaves.cobrancanaturaves.cliente.application.api.ClienteAlteracaoRequest;
 import br.com.naturaves.cobrancanaturaves.cliente.application.api.ClienteRequest;
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @Entity
+@Builder
 public class Cliente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

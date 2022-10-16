@@ -5,9 +5,11 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import br.com.naturaves.cobrancanaturaves.cliente.domain.InscricaoSocial;
+import lombok.Builder;
 import lombok.Value;
 
 @Value
+@Builder
 public class ClienteRequest {
 	@NotBlank
 	private String cliente;
