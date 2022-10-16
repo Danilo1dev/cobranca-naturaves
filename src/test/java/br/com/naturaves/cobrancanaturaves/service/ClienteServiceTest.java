@@ -57,6 +57,15 @@ public class ClienteServiceTest {
 	    clienteService.deletaClienteAtravesID(UUID.randomUUID());
 	    verify(clienteRepository,times(1)).deletaCliente(any());
 	}
+	@Test
+	void testDeleteWhithNotFoundException() {
+	    when (clienteRepository.buscaClienteAtravesId(any())).thenThrow(new RuntimeException("Cliente não encontrado pelo idCliente"));
+	    try {
+	        clienteService.deletaClienteAtravesID(UUID.randomUUID());
+	    }catch (Exception ex) {
+	     assertEquals("Cliente não encontrado pelo idCliente", ex.getMessage());
+	    }
+	}
 }
 
 
