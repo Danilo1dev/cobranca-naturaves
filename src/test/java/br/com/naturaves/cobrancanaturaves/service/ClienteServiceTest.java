@@ -1,10 +1,9 @@
 package br.com.naturaves.cobrancanaturaves.service;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.mockito.ArgumentMatchers.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.when;
 import java.util.UUID;
 import org.junit.jupiter.api.Test;
@@ -47,8 +46,6 @@ public class ClienteServiceTest {
 		assertNotNull(exception);
 	    assertEquals("Cliente não encontrado pelo idCliente", exception.getMessage());
 	}
-
 }
-
 
 

@@ -2,6 +2,8 @@ package br.com.naturaves.cobrancanaturaves.mock;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
+
+import br.com.naturaves.cobrancanaturaves.cliente.application.api.ClienteAlteracaoRequest;
 import br.com.naturaves.cobrancanaturaves.cliente.application.api.ClienteRequest;
 import br.com.naturaves.cobrancanaturaves.cliente.domain.Cliente;
 
@@ -28,4 +30,12 @@ public class MockCliente {
 			.nomeVendedor("Danilo Silva")
 			.build();
 	}
+	
+	public static ClienteAlteracaoRequest clientAlteracaoRequestBuild() {
+        return ClienteAlteracaoRequest.builder()
+            .telefone("73982407032")
+            .email("thais@email.com")
+            .nomeVendedor("Thaislane Marques")
+            .build();
+    }
 }
