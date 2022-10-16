@@ -1,5 +1,6 @@
 package br.com.naturaves.cobrancanaturaves.boleto.application.api;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -12,10 +13,10 @@ import lombok.Value;
 @Value
 public class BoletoClienteListResponse {
 	private UUID idBoleto;
-	private String numeroBoleto;
-	private String numeroDaParcela;
-	private LocalDate dataDoVencimento;
-	private Double valorDoBoleto;
+	private String documento;
+	private String parcela;
+	private LocalDate dataVencimento;
+	private BigDecimal saldoDevedor;
 	private GrupoEmpresarial grupoEmpresarial;
 	private LocalDateTime dataHoraDaCadastro;
 	
@@ -27,10 +28,10 @@ public class BoletoClienteListResponse {
 
 	public BoletoClienteListResponse(Boleto boleto) {
 		this.idBoleto = boleto.getIdBoleto();
-		this.numeroBoleto = boleto.getNumeroBoleto();
-		this.numeroDaParcela = boleto.getNumeroDaParcela();
-		this.dataDoVencimento = boleto.getDataDoVencimento();
-		this.valorDoBoleto = boleto.getValorDoBoleto();
+		this.documento = boleto.getDocumento();
+		this.parcela = boleto.getParcela();
+		this.dataVencimento = boleto.getDataVencimento();
+		this.saldoDevedor = boleto.getSaldoDevedor();
 		this.grupoEmpresarial = boleto.getGrupoEmpresarial();
 		this.dataHoraDaCadastro = boleto.getDataHoraDaCadastro();
 	}

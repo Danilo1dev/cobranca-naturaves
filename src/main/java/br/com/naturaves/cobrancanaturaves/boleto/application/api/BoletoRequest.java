@@ -1,5 +1,6 @@
 package br.com.naturaves.cobrancanaturaves.boleto.application.api;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -11,13 +12,13 @@ import lombok.Value;
 public class BoletoRequest {
 	@NotNull
 	@NotBlank(message = "O numero do boleto não pode estar em branco")
-	private String numeroBoleto;
+	private String documento;
 	@NotNull
 	@Size(max = 2)
-	private String numeroDaParcela;
+	private String parcela;
 	@NotNull
-	private LocalDate dataDoVencimento;
+	private LocalDate dataVencimento;
 	@NotNull
-	private Double valorDoBoleto;
+	private BigDecimal saldoDevedor;
 	private GrupoEmpresarial grupoEmpresarial;
 }

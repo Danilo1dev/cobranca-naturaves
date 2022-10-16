@@ -15,7 +15,7 @@ public class ClienteAlteracaoRequest {
 	@Email
 	private String email;
 	@NotBlank
-	private String vendedor;
+	private String nomeVendedor;
 	@NotNull
 	private LocalDate dataDoCadastro;
 }
