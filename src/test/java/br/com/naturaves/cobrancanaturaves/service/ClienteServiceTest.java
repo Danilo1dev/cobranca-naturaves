@@ -4,6 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import java.util.UUID;
 import org.junit.jupiter.api.Test;
@@ -45,6 +48,14 @@ public class ClienteServiceTest {
 		RuntimeException exception = assertThrows(RuntimeException.class, () -> clienteService.buscaClienteAtravesID(UUID.randomUUID()));
 		assertNotNull(exception);
 	    assertEquals("Cliente não encontrado pelo idCliente", exception.getMessage());
+	}
+
+	@Test
+	void testDeleteWhithSucess() {
+	    when (clienteRepository.buscaClienteAtravesId(any())).thenReturn(MockCliente.clienteBuild());
+	    doNothing().when(clienteRepository).deletaCliente(any());
+	    clienteService.deletaClienteAtravesID(UUID.randomUUID());
+	    verify(clienteRepository,times(1)).deletaCliente(any());
 	}
 }
 
