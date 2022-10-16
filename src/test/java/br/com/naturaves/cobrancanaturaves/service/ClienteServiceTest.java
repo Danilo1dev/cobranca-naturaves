@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.when;
 import java.util.UUID;
 import org.junit.jupiter.api.Test;
@@ -41,11 +42,12 @@ public class ClienteServiceTest {
 
 	@Test
 	void testFindByIDNotFound() {
-		when (clienteRepository.buscaClienteAtravesId(any())).thenThrow(new RuntimeException("Cliente não encontrada!"));
+		when (clienteRepository.buscaClienteAtravesId(any())).thenThrow(new RuntimeException("Cliente não encontrado pelo idCliente"));
 		RuntimeException exception = assertThrows(RuntimeException.class, () -> clienteService.buscaClienteAtravesID(UUID.randomUUID()));
 		assertNotNull(exception);
-	     assertEquals("Cliente não encontrada!", exception.getMessage());
+	    assertEquals("Cliente não encontrado pelo idCliente", exception.getMessage());
 	}
+
 }
 
 
