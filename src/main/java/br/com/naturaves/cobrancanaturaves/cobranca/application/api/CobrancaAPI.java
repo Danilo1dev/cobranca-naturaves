@@ -30,6 +30,10 @@ public interface CobrancaAPI {
 	@ResponseStatus(code = HttpStatus.OK)
 	CobrancaDetalhadoResponse getCobrancaAtravesId(@PathVariable UUID idBoleto, @PathVariable UUID idCobranca);
 	
+	@GetMapping(value = "/{idCobranca}")
+	@ResponseStatus(code = HttpStatus.OK)
+	CobrancaBoletoByClienteResponse getCobrancaBoletoByCliente(@PathVariable UUID idCobranca);
+	
 	@DeleteMapping(value = "/{idCobranca}")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	void deletaCobrancaDoBoletoComId(@PathVariable UUID idBoleto, @PathVariable UUID idCobranca);

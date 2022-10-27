@@ -4,7 +4,13 @@ import java.util.List;
 import java.util.UUID;
 import javax.validation.Valid;
 import org.springframework.web.bind.annotation.RestController;
+import br.com.naturaves.cobrancanaturaves.boleto.application.repository.BoletoRepository;
+import br.com.naturaves.cobrancanaturaves.boleto.domain.Boleto;
+import br.com.naturaves.cobrancanaturaves.cliente.application.repository.ClienteRepository;
+import br.com.naturaves.cobrancanaturaves.cliente.domain.Cliente;
+import br.com.naturaves.cobrancanaturaves.cobranca.application.repository.CobrancaRepository;
 import br.com.naturaves.cobrancanaturaves.cobranca.application.service.CobrancaService;
+import br.com.naturaves.cobrancanaturaves.cobranca.domain.Cobranca;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
@@ -13,6 +19,9 @@ import lombok.extern.log4j.Log4j2;
 @RequiredArgsConstructor
 public class CobrancaController implements CobrancaAPI {
 	private final CobrancaService cobrancaService;
+    private final CobrancaRepository cobrancaRepository;
+    private final BoletoRepository boletoRepository;
+    private final ClienteRepository clienteRepository;
 	
 	@Override
 	public CobrancaResponse postCobranca(UUID idBoleto, @Valid CobrancaRequest cobrancaRequest) {
@@ -39,6 +48,19 @@ public class CobrancaController implements CobrancaAPI {
 		CobrancaDetalhadoResponse cobranca = cobrancaService.buscaCobrancaDoBoletoComId(idBoleto,idCobranca);
 		log.info("[finaliza] CobrancaController - getCobrancaAtravesId");
 		return cobranca;
+	}
+	
+	public CobrancaBoletoByClienteResponse getCobrancaBoletoByCliente (UUID idCobranca) {
+	    log.info("[inicia] CobrancaController - getCobrancaBoletoByCliente");
+        log.info("[idCobranca]{}", idCobranca);
+	    Cobranca cobrancaById = cobrancaRepository.buscaCobrancaComId(idCobranca);
+	    Boleto boletoById = boletoRepository.buscaBoletoPeloId(cobrancaById.getIdBoleto());
+	    Cliente clienteById = clienteRepository.buscaClienteAtravesId(boletoById.getIdClienteComercial());
+        log.info("CobrancaController - Passagem - getCobrancaBoletoByCliente ");
+	    CobrancaBoletoByClienteResponse cobrancaBoletoByClienteResponse = 
+	            new CobrancaBoletoByClienteResponse(clienteById,boletoById,cobrancaById);
+	    log.info("[finaliza] CobrancaController - getCobrancaBoletoByCliente");
+	    return cobrancaBoletoByClienteResponse;
 	}
 
 	@Override

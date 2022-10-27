@@ -5,7 +5,9 @@ import java.util.UUID;
 import javax.validation.Valid;
 import org.springframework.stereotype.Service;
 import br.com.naturaves.cobrancanaturaves.boleto.application.service.BoletoService;
+import br.com.naturaves.cobrancanaturaves.cliente.application.service.ClienteService;
 import br.com.naturaves.cobrancanaturaves.cobranca.application.api.CobrancaAlteracaoRequest;
+import br.com.naturaves.cobrancanaturaves.cobranca.application.api.CobrancaBoletoByClienteResponse;
 import br.com.naturaves.cobrancanaturaves.cobranca.application.api.CobrancaBoletoListResponse;
 import br.com.naturaves.cobrancanaturaves.cobranca.application.api.CobrancaDetalhadoResponse;
 import br.com.naturaves.cobrancanaturaves.cobranca.application.api.CobrancaRequest;
@@ -20,8 +22,10 @@ import lombok.extern.log4j.Log4j2;
 @RequiredArgsConstructor
 public class CobrancaApplicationService implements CobrancaService {
 	private final BoletoService boletoService;
+	private final ClienteService clienteService;
 	private final CobrancaRepository cobrancaRepository;
-	
+    private final CobrancaBoletoByClienteResponse CobrancaBoletoByClienteResponse;
+		
 	@Override
 	public CobrancaResponse criaCobranca(UUID idBoleto, @Valid CobrancaRequest cobrancaRequest) {
 		log.info("[inicia] CobrancaApplicationService - criaCobranca");
@@ -49,6 +53,13 @@ public class CobrancaApplicationService implements CobrancaService {
 		log.info("[finaliza] CobrancaApplicationService - buscaCobrancaDoBoletoComId");
 		return new CobrancaDetalhadoResponse(cobranca);
 	}
+	
+//	public CobrancaBoletoByClienteResponse getCobrancaBoletoByCliente (UUID idCobranca) {
+//	    boletoService.buscaBoletoComIdBoleto(idCobranca);
+//	    clienteService.buscaClienteAtravesID(idCobranca);
+//	    CobrancaBoletoByClienteResponse = cobrancaRepository.buscaCobrancaComId(idCobranca);
+//	    return CobrancaBoletoByClienteResponse;
+//	}
 
 	@Override
 	public void deletaCobrancaDoBoletoComId(UUID idBoleto, UUID idCobranca) {
