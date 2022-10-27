@@ -14,6 +14,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import br.com.naturaves.cobrancanaturaves.cliente.application.api.ClienteAlteracaoRequest;
 import br.com.naturaves.cobrancanaturaves.cliente.application.api.ClienteDetalhadoResponse;
 import br.com.naturaves.cobrancanaturaves.cliente.application.api.ClienteResponse;
 import br.com.naturaves.cobrancanaturaves.cliente.application.service.ClienteApplicationService;
@@ -49,7 +51,14 @@ public class ClienteServiceTest {
 		assertNotNull(exception);
 	    assertEquals("Cliente não encontrado pelo idCliente", exception.getMessage());
 	}
-
+	
+	@Test
+	void testUpdateClientSucess() {
+	    when (clienteRepository.buscaClienteAtravesId(any())).thenReturn(MockCliente.clienteBuild());
+	   //ClienteAlteracaoRequest clienteResponse = clienteService.patchAlteracliente(UUID.randomUUID(), MockCliente.clienteBuild());
+	   // assertNotNull(clienteResponse);
+	}
+	
 	@Test
 	void testDeleteWhithSucess() {
 	    when (clienteRepository.buscaClienteAtravesId(any())).thenReturn(MockCliente.clienteBuild());
